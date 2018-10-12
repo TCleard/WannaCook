@@ -1,0 +1,57 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/light</item>
+        <item name="actionMenuTextColor">@color/dark</item>
+        <item name="android:textAppearance">@style/DefaultTextStyle</item>
+        <item name="android:textAppearanceButton">@style/ButtonStyle</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:actionMenuTextAppearance">@style/ToolbarItemStyle</item>
+    </style>
+
+    <style name="ToolbarTitleStyle" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="ToolbarSubtitleStyle" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="ToolbarItemStyle">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/textRegular</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="DefaultTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/textRegular</item>
+    </style>
+
+    <style name="TextStyleBold" parent="@style/DefaultTextStyle">
+        <item name="fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextStyleRegular" parent="@style/DefaultTextStyle">
+        <item name="fontFamily">@font/regular</item>
+    </style>
+
+    <style name="EditStyle" parent="@style/DefaultTextStyle">
+        <item name="fontFamily">@font/regular</item>
+    </style>
+
+    <style name="ButtonStyle" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
+</resources>

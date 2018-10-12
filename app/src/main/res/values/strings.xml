@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">WannaCook</string>
+
+    <!-- Units -->
+    <string name="kg">Kilogramme(s)</string>
+    <string name="g">Gramme(s)</string>
+    <string name="mg">Milligramme(s)</string>
+    <string name="l">Litre(s)</string>
+    <string name="cl">Centilitre(s)</string>
+    <string name="sp">Cuillère(s)</string>
+
+</resources>

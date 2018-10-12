@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="paddingSmall">4dp</dimen>
+    <dimen name="paddingRegular">8dp</dimen>
+    <dimen name="paddingMedium">16dp</dimen>
+    <dimen name="paddingBig">32dp</dimen>
+    <dimen name="paddingLarge">64dp</dimen>
+
+    <dimen name="marginSmall">4dp</dimen>
+    <dimen name="marginRegular">8dp</dimen>
+    <dimen name="marginMedium">16dp</dimen>
+    <dimen name="marginBig">32dp</dimen>
+    <dimen name="marginLarge">64dp</dimen>
+
+    <dimen name="textTiny">9sp</dimen>
+    <dimen name="textSmall">12sp</dimen>
+    <dimen name="textRegular">15sp</dimen>
+    <dimen name="textMedium">18sp</dimen>
+    <dimen name="textBig">21sp</dimen>
+
+
+    <!-- Toolbar -->
+    <dimen name="toolbarHeight">56dp</dimen>
+    <dimen name="toolbarElevation">4dp</dimen>
+
+    <!-- Icon -->
+    <dimen name="iconSmallSize">@dimen/paddingMedium</dimen>
+    <dimen name="iconRegularSize">24dp</dimen>
+    <dimen name="iconMediumSize">@dimen/paddingBig</dimen>
+
+    <!-- Item -->
+    <dimen name="itemElevationRest">1dp</dimen>
+    <dimen name="itemElevationPressed">3dp</dimen>
+    <dimen name="itemCornerRadius">@dimen/paddingSmall</dimen>
+
+    <!-- Fab -->
+    <dimen name="fabElevation">6dp</dimen>
+
+
+    <!-- Recipe Item -->
+    <dimen name="recipeItemHeight">256dp</dimen>
+
+</resources>
