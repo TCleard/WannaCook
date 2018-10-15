@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="@android:integer/config_shortAnimTime">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@id/recipeImage" />
+
+    </Transition>
+
+    <ConstraintSet
+        android:id="@+id/start"
+        app:pathMotionArc="startHorizontal">
+
+        <Constraint
+            android:id="@id/recipeImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeImageBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeBack"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginEnd="@dimen/marginMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/dark" />
+
+            <CustomAttribute
+                app:attributeName="maxLines"
+                app:customIntegerValue="10"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@id/recipeImage"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbarHeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeImageBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeBack"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginRegular"
+            android:layout_marginEnd="@dimen/marginRegular"
+            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/recipeBack"
+            app:layout_constraintTop_toTopOf="@id/recipeBack">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/white" />
+
+            <CustomAttribute
+                app:attributeName="maxLines"
+                app:customIntegerValue="1"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>

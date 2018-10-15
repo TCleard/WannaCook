@@ -8,9 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class MainModule(
-        private val clickListener: RecipeAdapter.OnClickListener
-) {
+class MainModule {
 
     @Provides
     @SceneScope
@@ -21,7 +19,7 @@ class MainModule(
     @Provides
     @SceneScope
     fun provideAdapter(imageManager: IImageManager): RecipeAdapter {
-        return RecipeAdapter(imageManager, clickListener)
+        return RecipeAdapter(imageManager)
     }
 
 }

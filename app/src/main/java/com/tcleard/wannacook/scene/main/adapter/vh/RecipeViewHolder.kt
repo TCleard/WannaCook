@@ -3,6 +3,7 @@ package com.tcleard.wannacook.scene.main.adapter.vh
 import android.view.View
 import android.view.ViewGroup
 import com.tcleard.wannacook.R
+import com.tcleard.wannacook.core.extension.withAlpha
 import com.tcleard.wannacook.core.manager.IImageManager
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
 import com.tcleard.wannacook.ui.adapter.AViewHolder
@@ -10,18 +11,14 @@ import kotlinx.android.synthetic.main.itemview_recipe.view.*
 
 class RecipeViewHolder(
         parent: ViewGroup,
-        private val imageManager: IImageManager,
-        listener: OnClickListener
+        private val imageManager: IImageManager
 ) : AViewHolder<RecipeViewModel>(parent, R.layout.itemview_recipe) {
 
     private var imageRequest: IImageManager.ImageRequest? = null
 
     init {
         itemView.recipeRoot.setOnClickListener {
-            item?.let { viewModel -> listener.onRecipeClicked(viewModel) }
-        }
-        itemView.recipeFavorite.setOnClickListener {
-            item?.let { viewModel -> listener.onFavoriteClicked(viewModel) }
+            item?.onClick(itemView.recipeImage, itemView.recipeName)
         }
     }
 
@@ -30,7 +27,7 @@ class RecipeViewHolder(
 
         val typeColor = item.getTypeColor() ?: resources.getColor(R.color.colorPrimary)
 
-        itemView.recipeImageHolder.setBackgroundColor(typeColor)
+        itemView.recipeImage.setBackgroundColor(typeColor.withAlpha(0.6f))
 
         if (item.getImageUrl().isNotBlank()) {
             if (imageRequest?.url != item.getImageUrl()) {
@@ -71,13 +68,6 @@ class RecipeViewHolder(
         } else {
             itemView.recipeFavorite.setImageResource(R.mipmap.favorite_off)
         }
-
-    }
-
-    interface OnClickListener {
-
-        fun onRecipeClicked(viewModel: RecipeViewModel)
-        fun onFavoriteClicked(viewModel: RecipeViewModel)
 
     }
 

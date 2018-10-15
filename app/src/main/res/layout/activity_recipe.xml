@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipeRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/recipeImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="@dimen/toolbarElevation"
+        android:scaleType="centerCrop"
+        android:transitionName="@string/sharedRecipeImage"
+        app:layout_constraintDimensionRatio="H,16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher" />
+
+    <View
+        android:id="@+id/recipeImageBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:elevation="@dimen/toolbarElevation"
+        app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/colorPrimary" />
+
+    <ImageButton
+        android:id="@+id/recipeBack"
+        android:layout_width="@dimen/toolbarButtonSize"
+        android:layout_height="@dimen/toolbarButtonSize"
+        android:background="@drawable/foreground_dark_round"
+        android:elevation="@dimen/toolbarElevation"
+        android:padding="@dimen/paddingMedium"
+        android:scaleType="centerInside"
+        android:src="@mipmap/back"
+        android:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/recipeName"
+        style="@style/TextStyleBold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginMedium"
+        android:elevation="@dimen/toolbarElevation"
+        android:ellipsize="marquee"
+        android:textSize="@dimen/textBig"
+        android:transitionName="@string/sharedRecipeName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipeImage"
+        tools:text="Recipe Title" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/light</item>
         <item name="actionMenuTextColor">@color/dark</item>
+        <item name="android:colorBackground">@color/mainBackground</item>
         <item name="android:textAppearance">@style/DefaultTextStyle</item>
         <item name="android:textAppearanceButton">@style/ButtonStyle</item>
     </style>

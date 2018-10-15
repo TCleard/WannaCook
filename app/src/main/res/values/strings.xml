@@ -10,4 +10,8 @@
     <string name="cl">Centilitre(s)</string>
     <string name="sp">Cuillère(s)</string>
 
+    <!-- SharedElements -->
+    <string name="sharedRecipeImage">recipeImage</string>
+    <string name="sharedRecipeName">recipeName</string>
+
 </resources>

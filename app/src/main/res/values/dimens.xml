@@ -20,14 +20,19 @@
     <dimen name="textBig">21sp</dimen>
 
 
+    <dimen name="statusBarHeight">24dp</dimen>
+    <dimen name="statusToolbarHeight">80dp</dimen>
+
     <!-- Toolbar -->
     <dimen name="toolbarHeight">56dp</dimen>
     <dimen name="toolbarElevation">4dp</dimen>
+    <dimen name="toolbarButtonSize">@dimen/toolbarHeight</dimen>
 
     <!-- Icon -->
     <dimen name="iconSmallSize">@dimen/paddingMedium</dimen>
     <dimen name="iconRegularSize">24dp</dimen>
     <dimen name="iconMediumSize">@dimen/paddingBig</dimen>
+    <dimen name="iconBigSize">48dp</dimen>
 
     <!-- Item -->
     <dimen name="itemElevationRest">1dp</dimen>
@@ -35,6 +40,7 @@
     <dimen name="itemCornerRadius">@dimen/paddingSmall</dimen>
 
     <!-- Fab -->
+    <dimen name="fabSize">56dp</dimen>
     <dimen name="fabElevation">6dp</dimen>
 
 

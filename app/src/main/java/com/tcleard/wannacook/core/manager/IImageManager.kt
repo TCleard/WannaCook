@@ -4,7 +4,7 @@ import android.widget.ImageView
 
 interface IImageManager {
 
-    fun loadImage(url: String?, imageView: ImageView): ImageRequest
+    fun loadImage(url: String?, imageView: ImageView, onFinished: (() -> Unit)? = null): ImageRequest
 
     abstract class ImageRequest(
             var url: String?

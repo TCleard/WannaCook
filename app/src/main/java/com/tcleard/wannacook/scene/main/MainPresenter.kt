@@ -1,6 +1,8 @@
 package com.tcleard.wannacook.scene.main
 
 import android.graphics.Color
+import android.widget.ImageView
+import android.widget.TextView
 import com.tcleard.wannacook.core.manager.ITimeManager
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.core.presenter.APresenter
@@ -9,7 +11,7 @@ import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
 import javax.inject.Inject
 
 class MainPresenter @Inject constructor(
-    private val timeManager: ITimeManager
+        private val timeManager: ITimeManager
 ) : APresenter<MainPresenter.MainView>() {
 
     override fun attach(view: MainView) {
@@ -40,13 +42,19 @@ class MainPresenter @Inject constructor(
         recipe2.cookingTime = 1000 * 60 * 20
         recipes.add(recipe2)
 
-        view.showRecipes(recipes.map { RecipeViewModel(it, timeManager) })
+        view.showRecipes(recipes.map {
+            RecipeViewModel(it, timeManager) { recipe, imageView, textView ->
+                this.view?.goToRecipe(recipe, imageView, textView)
+            }
+        })
 
     }
 
     interface MainView : IView {
 
         fun showRecipes(viewModels: List<RecipeViewModel>)
+
+        fun goToRecipe(recipe: Recipe, imageView: ImageView, textView: TextView)
 
     }
 

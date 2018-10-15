@@ -6,12 +6,15 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="transparent">#00000000</color>
+    <color name="statusBarColor">#1F505060</color>
 
     <color name="mainBackground">#F3F3F7</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="whiteAlpha">#80FFFFFF</color>
 
     <color name="dark">#505060</color>
+    <color name="darkAlpha">#80505060</color>
 
     <color name="light">#D8D8E8</color>
     <color name="lightAlpha">#80D8D8E8</color>

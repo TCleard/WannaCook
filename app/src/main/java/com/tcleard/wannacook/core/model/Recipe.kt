@@ -17,7 +17,7 @@ class Recipe : AModel() {
     var ingredients = arrayListOf<Ingredient>()
     var steps = arrayListOf<Step>()
 
-    class Type {
+    class Type : AModel() {
 
         var name: String = ""
         var color: Int? = null
