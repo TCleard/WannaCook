@@ -1,5 +1,7 @@
 package com.tcleard.wannacook.ui.adapter
 
+import android.content.Context
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 
 abstract class AItemAdapter<I, VH : AViewHolder<*>> : RecyclerView.Adapter<VH>() {
@@ -19,7 +21,7 @@ abstract class AItemAdapter<I, VH : AViewHolder<*>> : RecyclerView.Adapter<VH>()
             }
 
     open fun getSpanSize(position: Int): Int {
-        return getSpanCount()
+        return 1
     }
 
     open fun getSpanCount(): Int {
@@ -59,6 +61,14 @@ abstract class AItemAdapter<I, VH : AViewHolder<*>> : RecyclerView.Adapter<VH>()
                 notifyItemRangeInserted(previousCount, itemCount - previousCount)
             }
         }
+    }
+
+    fun generateLayoutManager(context: Context): RecyclerView.LayoutManager {
+        val layoutManager = GridLayoutManager(context, getSpanCount())
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int = this@AItemAdapter.getSpanSize(position)
+        }
+        return layoutManager
     }
 
 }

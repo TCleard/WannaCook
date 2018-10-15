@@ -6,7 +6,7 @@ import com.tcleard.wannacook.scene.main.adapter.vh.RecipeViewHolder
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
 import com.tcleard.wannacook.ui.adapter.AViewModelAdapter
 
-class RecipeAdapter(
+class MainAdapter(
         private val imageManager: IImageManager
 ) : AViewModelAdapter<RecipeViewModel, RecipeViewHolder>() {
 

@@ -3,7 +3,7 @@ package com.tcleard.wannacook.scene.main
 import com.tcleard.wannacook.core.manager.IImageManager
 import com.tcleard.wannacook.core.manager.ITimeManager
 import com.tcleard.wannacook.di.SceneScope
-import com.tcleard.wannacook.scene.main.adapter.RecipeAdapter
+import com.tcleard.wannacook.scene.main.adapter.MainAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -18,8 +18,8 @@ class MainModule {
 
     @Provides
     @SceneScope
-    fun provideAdapter(imageManager: IImageManager): RecipeAdapter {
-        return RecipeAdapter(imageManager)
+    fun provideAdapter(imageManager: IImageManager): MainAdapter {
+        return MainAdapter(imageManager)
     }
 
 }

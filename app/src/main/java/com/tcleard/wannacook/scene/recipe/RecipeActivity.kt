@@ -1,6 +1,7 @@
 package com.tcleard.wannacook.scene.recipe
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import com.tcleard.wannacook.R
@@ -8,6 +9,7 @@ import com.tcleard.wannacook.core.manager.IImageManager
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.ui.controller.AActivity
 import kotlinx.android.synthetic.main.activity_recipe.*
+import javax.inject.Inject
 
 class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView, View.OnClickListener {
 
@@ -30,6 +32,9 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
 
     }
 
+    @Inject
+    lateinit var adapter: RecipeFragmentAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
@@ -41,11 +46,13 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
 
         DaggerRecipeComponent.builder()
                 .appComponent(appComponent)
-                .recipeModule(RecipeModule())
+                .recipeModule(RecipeModule(this))
                 .build()
                 .inject(this)
 
         presenter.attach(this)
+
+        recipePager.adapter = adapter
 
         (intent.getSerializableExtra(EXTRA_RECIPE) as? Recipe)?.let {
             presenter.setRecipe(it)
@@ -77,13 +84,17 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
         }
     }
 
-    override fun showImageBackground(color: Int?) {
-        recipeImageBackground.setBackgroundColor((color
-                ?: resources.getColor(R.color.colorPrimary)))
+    override fun showFabColor(color: Int?) {
+        recipeGo.backgroundTintList = ColorStateList.valueOf(color
+                ?: resources.getColor(R.color.colorPrimary))
     }
 
     override fun showName(name: String) {
         recipeName.text = name
+    }
+
+    override fun showFragments(fragments: List<ARecipeFragment<*>>) {
+        adapter.setFragments(fragments)
     }
 
     /** Listeners **/

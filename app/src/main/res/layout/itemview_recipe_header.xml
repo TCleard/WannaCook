@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/marginMedium"
+    android:paddingTop="@dimen/paddingBig"
+    android:paddingRight="@dimen/marginMedium"
+    android:paddingBottom="@dimen/marginMedium">
+
+    <TextView
+        android:id="@+id/recipeHeaderText"
+        style="@style/TextStyleBold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/marginRegular"
+        android:textSize="@dimen/textMedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/recipeHeaderIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Recipe Header" />
+
+    <ImageView
+        android:id="@+id/recipeHeaderIcon"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:scaleType="centerInside"
+        android:tint="@color/dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/board" />
+
+</android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.model.Recipe
-import com.tcleard.wannacook.scene.main.adapter.RecipeAdapter
+import com.tcleard.wannacook.scene.main.adapter.MainAdapter
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
 import com.tcleard.wannacook.scene.recipe.RecipeActivity
 import com.tcleard.wannacook.ui.controller.AActivity
@@ -19,7 +19,7 @@ import kotlin.properties.Delegates
 class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
 
     @Inject
-    lateinit var adapter: RecipeAdapter
+    lateinit var adapter: MainAdapter
 
     private var baseToolbarY: Float by Delegates.notNull()
     private var baseFabY: Float by Delegates.notNull()
@@ -44,13 +44,7 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
         presenter.attach(this)
 
         mainList.addItemDecoration(ComponentDecoration(this, ComponentDecoration.Component.TOOLBAR, ComponentDecoration.Component.FAB))
-        mainList.layoutManager = object : GridLayoutManager(this, adapter.getSpanCount()) {
-
-            override fun getSpanSizeLookup(): SpanSizeLookup = object : SpanSizeLookup() {
-                override fun getSpanSize(position: Int): Int = adapter.getSpanSize(position)
-            }
-
-        }
+        mainList.layoutManager = adapter.generateLayoutManager(this)
         mainList.adapter = adapter
 
     }

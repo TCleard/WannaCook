@@ -43,6 +43,9 @@
     <dimen name="fabSize">56dp</dimen>
     <dimen name="fabElevation">6dp</dimen>
 
+    <!-- Button -->
+    <dimen name="buttonCornerRadius">@dimen/paddingRegular</dimen>
+
 
     <!-- Recipe Item -->
     <dimen name="recipeItemHeight">256dp</dimen>

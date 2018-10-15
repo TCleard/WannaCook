@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/paddingMedium"
+    android:paddingTop="@dimen/paddingRegular"
+    android:paddingRight="@dimen/paddingMedium"
+    android:paddingBottom="@dimen/paddingRegular">
+
+    <TextView
+        android:id="@+id/ingredientRecipeStart"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/textRegular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ingredientRecipeContent"
+        style="@style/TextStyleRegular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginSmall"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/textRegular"
+        app:layout_constraintStart_toEndOf="@id/ingredientRecipeStart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="300 g de crème épaisse" />
+
+</android.support.constraint.ConstraintLayout>

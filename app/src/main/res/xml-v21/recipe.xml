@@ -5,11 +5,9 @@
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start"
-        app:duration="@android:integer/config_shortAnimTime">
+        app:duration="@android:integer/config_longAnimTime">
 
-        <OnSwipe
-            app:dragDirection="dragUp"
-            app:touchAnchorId="@id/recipeImage" />
+        <OnClick app:target="@id/recipeGo" />
 
     </Transition>
 
@@ -42,7 +40,17 @@
             android:layout_height="@dimen/toolbarButtonSize"
             android:layout_marginTop="@dimen/statusBarHeight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+            android:id="@id/recipeBackAlpha"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
+            app:layout_constraintEnd_toEndOf="@id/recipeBack"
+            app:layout_constraintStart_toStartOf="@id/recipeBack"
+            app:layout_constraintTop_toTopOf="@id/recipeBack" />
 
         <Constraint
             android:id="@id/recipeName"
@@ -56,14 +64,36 @@
             app:layout_constraintTop_toBottomOf="@id/recipeImage">
 
             <CustomAttribute
-                app:attributeName="textColor"
-                app:customColorValue="@color/dark" />
-
-            <CustomAttribute
                 app:attributeName="maxLines"
-                app:customIntegerValue="10"/>
+                app:customIntegerValue="10" />
 
         </Constraint>
+
+        <Constraint
+            android:id="@id/recipePager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipePagerTop">
+
+            <CustomAttribute
+                app:attributeName="focusable"
+                app:customBoolean="false" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@id/recipeGo"
+            android:layout_width="@dimen/fabSize"
+            android:layout_height="@dimen/fabSize"
+            android:rotation="0"
+            app:layout_constraintBottom_toBottomOf="@id/recipePagerTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/recipePagerTop" />
 
     </ConstraintSet>
 
@@ -93,7 +123,17 @@
             android:layout_height="@dimen/toolbarButtonSize"
             android:layout_marginTop="@dimen/statusBarHeight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+            android:id="@id/recipeBackAlpha"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
+            app:layout_constraintEnd_toEndOf="@id/recipeBack"
+            app:layout_constraintStart_toStartOf="@id/recipeBack"
+            app:layout_constraintTop_toTopOf="@id/recipeBack" />
 
         <Constraint
             android:id="@id/recipeName"
@@ -107,14 +147,36 @@
             app:layout_constraintTop_toTopOf="@id/recipeBack">
 
             <CustomAttribute
-                app:attributeName="textColor"
-                app:customColorValue="@color/white" />
-
-            <CustomAttribute
                 app:attributeName="maxLines"
-                app:customIntegerValue="1"/>
+                app:customIntegerValue="1" />
 
         </Constraint>
+
+        <Constraint
+            android:id="@id/recipePager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage">
+
+            <CustomAttribute
+                app:attributeName="focusable"
+                app:customBoolean="true" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@id/recipeGo"
+            android:layout_width="@dimen/fabSize"
+            android:layout_height="@dimen/fabSize"
+            android:layout_marginEnd="@dimen/marginMedium"
+            android:rotation="-180"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage" />
 
     </ConstraintSet>
 
