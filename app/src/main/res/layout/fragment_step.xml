@@ -8,43 +8,43 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/ingredientTitle"
+        app:layout_constraintBottom_toBottomOf="@id/stepTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ingredientTitle"
+        android:id="@+id/stepTitle"
         style="@style/TextStyleBold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="@dimen/paddingMedium"
-        android:text="@string/recipeIngredients"
+        android:text="@string/recipeSteps"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/textMedium"
-        app:layout_constraintEnd_toStartOf="@id/ingredientIcon"
+        app:layout_constraintEnd_toStartOf="@id/stepIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ingredientIcon"
+        android:id="@+id/stepIcon"
         android:layout_width="@dimen/iconMediumSize"
         android:layout_height="@dimen/iconMediumSize"
         android:layout_marginRight="@dimen/marginMedium"
-        android:src="@mipmap/ingredients"
+        android:src="@mipmap/cooking"
         android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@id/ingredientTitle"
+        app:layout_constraintBottom_toBottomOf="@id/stepTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ingredientTitle" />
+        app:layout_constraintTop_toTopOf="@id/stepTitle" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/ingredientList"
+        android:id="@+id/stepList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ingredientTitle" />
+        app:layout_constraintTop_toBottomOf="@id/stepTitle" />
 
 </android.support.constraint.ConstraintLayout>

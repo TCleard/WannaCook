@@ -4,35 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/paddingMedium"
-    android:paddingTop="@dimen/paddingRegular"
-    android:paddingRight="@dimen/paddingMedium"
-    android:paddingBottom="@dimen/paddingRegular">
+    android:padding="@dimen/paddingMedium">
 
     <TextView
-        android:id="@+id/ingredientRecipeStart"
+        android:id="@+id/stepNumber"
         style="@style/TextStyleRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="•"
         android:textColor="@color/dark"
         android:textSize="@dimen/textRegular"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1. " />
 
     <TextView
-        android:id="@+id/ingredientRecipeContent"
+        android:id="@+id/stepText"
         style="@style/TextStyleRegular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginSmall"
         android:textColor="@color/dark"
         android:textSize="@dimen/textRegular"
-        app:layout_constraintStart_toEndOf="@id/ingredientRecipeStart"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="300 g de crème épaisse" />
+        app:layout_constraintStart_toEndOf="@id/stepNumber"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cassez les oeufs dans un saladier et touillez jusqu'à ce qu'ils deviennent rouges." />
 
 </android.support.constraint.ConstraintLayout>

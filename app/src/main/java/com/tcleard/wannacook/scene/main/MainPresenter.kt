@@ -60,7 +60,7 @@ class MainPresenter @Inject constructor(
                 .build())
         ingredients2.add(Ingredient.builder()
                 .name("Jus de citron")
-                .quantity(2.0)
+                .quantity(2.5)
                 .unit(Ingredient.Unit.SP)
                 .build())
         ingredients2.add(Ingredient.builder()
@@ -105,8 +105,8 @@ class MainPresenter @Inject constructor(
         recipes.add(recipe2)
 
         view.showRecipes(recipes.map {
-            RecipeViewModel(it, timeManager) { recipe, imageView, textView ->
-                this.view?.goToRecipe(recipe, imageView, textView)
+            RecipeViewModel(it, timeManager) { recipe, imageView ->
+                this.view?.goToRecipe(recipe, imageView)
             }
         })
 
@@ -116,7 +116,7 @@ class MainPresenter @Inject constructor(
 
         fun showRecipes(viewModels: List<RecipeViewModel>)
 
-        fun goToRecipe(recipe: Recipe, imageView: ImageView, textView: TextView)
+        fun goToRecipe(recipe: Recipe, imageView: ImageView)
 
     }
 

@@ -14,7 +14,6 @@
 
     <!-- SharedElements -->
     <string name="sharedRecipeImage">recipeImage</string>
-    <string name="sharedRecipeName">recipeName</string>
 
     <!-- Recipe -->
     <string name="recipeGo">C\'est parti !</string>

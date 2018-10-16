@@ -55,7 +55,7 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
         adapter.setItems(viewModels)
     }
 
-    override fun goToRecipe(recipe: Recipe, imageView: ImageView, textView: TextView) {
+    override fun goToRecipe(recipe: Recipe, imageView: ImageView) {
         addExitListener(onExit = {
             mainToolbarLayout.animate()
                     .y(-mainToolbarLayout.height.toFloat())
@@ -74,7 +74,6 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
         RecipeActivity.builder(this)
                 .with(recipe)
                 .addSharedElement(imageView, R.string.sharedRecipeImage)
-                .addSharedElement(textView, R.string.sharedRecipeName)
                 .start()
     }
 

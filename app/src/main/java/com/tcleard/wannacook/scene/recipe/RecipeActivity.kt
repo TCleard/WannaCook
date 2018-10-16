@@ -1,10 +1,10 @@
 package com.tcleard.wannacook.scene.recipe
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import com.tcleard.wannacook.R
+import com.tcleard.wannacook.core.extension.withAlpha
 import com.tcleard.wannacook.core.manager.IImageManager
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.ui.controller.AActivity
@@ -85,8 +85,8 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
     }
 
     override fun showFabColor(color: Int?) {
-        recipeGo.backgroundTintList = ColorStateList.valueOf(color
-                ?: resources.getColor(R.color.colorPrimary))
+        recipeImage.setBackgroundColor((color
+                ?: resources.getColor(R.color.colorPrimary)).withAlpha(0.4f))
     }
 
     override fun showName(name: String) {

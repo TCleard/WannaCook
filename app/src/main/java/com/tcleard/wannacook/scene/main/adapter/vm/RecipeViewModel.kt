@@ -9,7 +9,7 @@ import com.tcleard.wannacook.ui.adapter.AViewModel
 class RecipeViewModel(
         recipe: Recipe,
         private val timeManager: ITimeManager,
-        private val block: (Recipe, ImageView, TextView) -> Unit
+        private val block: (Recipe, ImageView) -> Unit
 ) : AViewModel<Recipe>(recipe) {
 
     fun getImageUrl(): String = model.imageUrl
@@ -25,8 +25,8 @@ class RecipeViewModel(
 
     fun isFavorite() : Boolean = getName().contains("a")
 
-    fun onClick(imageView: ImageView, textView: TextView) {
-        block.invoke(model, imageView, textView)
+    fun onClick(imageView: ImageView) {
+        block.invoke(model, imageView)
     }
 
 }

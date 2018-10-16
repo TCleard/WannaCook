@@ -58,7 +58,6 @@
             android:gravity="center|start"
             android:maxLines="3"
             android:textSize="@dimen/textBig"
-            android:transitionName="@string/sharedRecipeName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipeType"

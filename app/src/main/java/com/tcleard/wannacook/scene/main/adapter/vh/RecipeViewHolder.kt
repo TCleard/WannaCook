@@ -18,7 +18,7 @@ class RecipeViewHolder(
 
     init {
         itemView.recipeRoot.setOnClickListener {
-            item?.onClick(itemView.recipeImage, itemView.recipeName)
+            item?.onClick(itemView.recipeImage)
         }
     }
 

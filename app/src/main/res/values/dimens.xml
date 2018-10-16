@@ -18,6 +18,7 @@
     <dimen name="textRegular">15sp</dimen>
     <dimen name="textMedium">18sp</dimen>
     <dimen name="textBig">21sp</dimen>
+    <dimen name="textLarge">24sp</dimen>
 
 
     <dimen name="statusBarHeight">24dp</dimen>

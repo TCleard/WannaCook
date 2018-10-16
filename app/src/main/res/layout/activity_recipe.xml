@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/recipe">
 
+    <View
+        android:id="@+id/recipeImageBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:elevation="@dimen/toolbarElevation"
+        app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/recipeImage"
         android:layout_width="0dp"
@@ -19,18 +30,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_launcher" />
-
-    <View
-        android:id="@+id/recipeImageBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha="0"
-        android:background="@color/white"
-        android:elevation="@dimen/toolbarElevation"
-        app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/recipeBack"
@@ -66,18 +65,10 @@
         android:elevation="@dimen/toolbarElevation"
         android:ellipsize="marquee"
         android:textSize="@dimen/textBig"
-        android:transitionName="@string/sharedRecipeName"
+        app:layout_constraintBottom_toBottomOf="@id/recipeImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recipeImage"
         tools:text="Recipe Title" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/recipePagerTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/recipePager"
@@ -86,18 +77,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recipePagerTop" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/recipeGo"
-        android:layout_width="@dimen/fabSize"
-        android:layout_height="@dimen/fabSize"
-        android:background="@drawable/background_white_round"
-        android:elevation="@dimen/fabElevation"
-        android:src="@mipmap/arrow_down"
-        app:layout_constraintBottom_toBottomOf="@id/recipePagerTop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/recipePagerTop" />
+        app:layout_constraintTop_toBottomOf="@id/recipeImage" />
 
 </android.support.constraint.motion.MotionLayout>
