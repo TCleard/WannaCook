@@ -14,6 +14,8 @@ class Recipe : AModel() {
 
     var rating: Double? = null
 
+    var count: Int = 1
+
     var ingredients = arrayListOf<Ingredient>()
     var steps = arrayListOf<Step>()
 

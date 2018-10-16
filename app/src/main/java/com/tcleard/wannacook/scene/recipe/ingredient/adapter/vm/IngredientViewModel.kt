@@ -5,14 +5,18 @@ import com.tcleard.wannacook.core.model.Ingredient
 import com.tcleard.wannacook.ui.adapter.AViewModel
 
 class IngredientViewModel(
+        private val baseCount: Int,
+        private val editCount: Int,
         ingredient: Ingredient
 ) : AViewModel<Ingredient>(ingredient) {
 
     fun getQuantity(): String? = if (model.quantity > 0) {
-        if (model.unit == Ingredient.Unit.NONE || model.quantity.isWhole()) {
-            "${model.quantity.toInt()}"
+        var quantity = model.quantity
+        quantity *= (editCount.toDouble() / baseCount.toDouble())
+        if (quantity.isWhole()) {
+            "${quantity.toInt()}"
         } else {
-            "${model.quantity}"
+            "$quantity"
         }
     } else {
         null

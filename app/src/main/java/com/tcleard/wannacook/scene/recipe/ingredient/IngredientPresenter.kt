@@ -12,14 +12,36 @@ class IngredientPresenter @Inject constructor(
 
     private lateinit var recipe: Recipe
 
+    private var count = 1
+
     fun setRecipe(recipe: Recipe) {
         this.recipe = recipe
-        view?.showIngredients(recipe.ingredients.map { IngredientViewModel(it) })
+        this.count = recipe.count
+        updateCount()
+    }
+
+    fun onMinusClicked() {
+        count--
+        updateCount()
+    }
+
+    fun onPlusClicked() {
+        count++
+        updateCount()
+    }
+
+    private fun updateCount() {
+        view?.showCount(count)
+        view?.showMinusEnabled(count > 1)
+        view?.showIngredients(recipe.ingredients.map { IngredientViewModel(recipe.count, count, it) })
     }
 
     interface IngredientView : IView {
 
         fun showIngredients(ingredients: List<IngredientViewModel>)
+
+        fun showMinusEnabled(enabled: Boolean)
+        fun showCount(count: Int)
 
     }
 

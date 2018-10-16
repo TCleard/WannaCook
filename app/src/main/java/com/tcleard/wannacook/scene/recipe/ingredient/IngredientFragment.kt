@@ -12,7 +12,7 @@ import com.tcleard.wannacook.scene.recipe.ingredient.adapter.vm.IngredientViewMo
 import kotlinx.android.synthetic.main.fragment_ingredient.*
 import javax.inject.Inject
 
-class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPresenter.IngredientView {
+class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPresenter.IngredientView, View.OnClickListener {
 
     @Inject
     lateinit var adapter: IngredientAdapter
@@ -28,8 +28,6 @@ class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPre
 
         presenter.attach(this)
 
-        presenter.setRecipe(recipe)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -38,8 +36,13 @@ class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPre
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        presenter.setRecipe(recipe)
+
         ingredientList.layoutManager = LinearLayoutManager(requireContext())
         ingredientList.adapter = adapter
+
+        ingredientPeopleMinus.setOnClickListener(this)
+        ingredientPeoplePlus.setOnClickListener(this)
 
     }
 
@@ -47,6 +50,24 @@ class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPre
 
     override fun showIngredients(ingredients: List<IngredientViewModel>) {
         adapter.setItems(ingredients)
+    }
+
+    override fun showCount(count: Int) {
+        ingredientPeopleCount.text = "$count"
+        ingredientPeopleText.text = resources.getQuantityString(R.plurals.peopleCount, count)
+    }
+
+    override fun showMinusEnabled(enabled: Boolean) {
+        ingredientPeopleMinus.isEnabled = enabled
+    }
+
+    /** Listeners **/
+
+    override fun onClick(v: View?) {
+        when (v) {
+            ingredientPeopleMinus -> presenter.onMinusClicked()
+            ingredientPeoplePlus -> presenter.onPlusClicked()
+        }
     }
 
 }

@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toStartOf="@id/ingredientCheck"
         app:layout_constraintStart_toEndOf="@id/ingredientStart"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="300 g de crème épaisse" />
+        tools:text="Ingredient Name" />
 
     <CheckBox
         android:id="@+id/ingredientCheck"

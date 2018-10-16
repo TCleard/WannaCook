@@ -28,8 +28,6 @@ class StepFragment : ARecipeFragment<StepPresenter>(), StepPresenter.StepView {
 
         presenter.attach(this)
 
-        presenter.setRecipe(recipe)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -37,6 +35,8 @@ class StepFragment : ARecipeFragment<StepPresenter>(), StepPresenter.StepView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        presenter.setRecipe(recipe)
 
         stepList.layoutManager = LinearLayoutManager(requireContext())
         stepList.adapter = adapter

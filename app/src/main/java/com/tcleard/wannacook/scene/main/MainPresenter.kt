@@ -2,7 +2,6 @@ package com.tcleard.wannacook.scene.main
 
 import android.graphics.Color
 import android.widget.ImageView
-import android.widget.TextView
 import com.tcleard.wannacook.core.manager.ITimeManager
 import com.tcleard.wannacook.core.model.Ingredient
 import com.tcleard.wannacook.core.model.Recipe
@@ -38,6 +37,7 @@ class MainPresenter @Inject constructor(
 
         val recipe2 = Recipe()
         recipe2.type = type2
+        recipe2.count = 4
         recipe2.name = "Saumon en papillote"
         recipe2.imageUrl = "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F23711f94-b1e4-40f7-a589-a8ce0e0ac7a5.2Ejpeg/737x415/quality/80/crop-from/center/saumon-en-papillote.jpeg"
         recipe2.preparationTime = 1000 * 60 * 15

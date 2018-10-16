@@ -28,6 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/stepNumber"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Cassez les oeufs dans un saladier et touillez jusqu'à ce qu'ils deviennent rouges." />
+        tools:text="Step Text" />
 
 </android.support.constraint.ConstraintLayout>
