@@ -60,6 +60,15 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
 
     }
 
+    override fun onBackPressed() {
+        if (recipeRoot.progress > 0f && recipeRoot.currentState != -1) {
+            recipeRoot.currentState
+            recipeRoot.transitionToStart()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         setLayoutBelowStatusBar(false)
@@ -101,7 +110,7 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
 
     override fun onClick(v: View?) {
         when (v) {
-            recipeBack -> onBackPressed()
+            recipeBack -> super.onBackPressed()
         }
     }
 

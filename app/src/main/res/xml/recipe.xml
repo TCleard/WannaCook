@@ -5,11 +5,10 @@
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start"
-        app:duration="@android:integer/config_mediumAnimTime">
+        app:duration="@android:integer/config_shortAnimTime"
+        app:interpolator="easeOut">
 
-        <OnSwipe
-            app:dragDirection="dragDown"
-            app:target="@id/recipePager" />
+        <OnClick app:target="@id/recipeReduce" />
 
     </Transition>
 
@@ -54,6 +53,25 @@
             app:layout_constraintTop_toTopOf="@id/recipeBack" />
 
         <Constraint
+            android:id="@id/recipeReduce"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:rotation="-180"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeReduceAlpha"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:alpha="0"
+            android:rotation="-180"
+            app:layout_constraintBottom_toBottomOf="@id/recipeReduce"
+            app:layout_constraintEnd_toEndOf="@id/recipeReduce"
+            app:layout_constraintStart_toStartOf="@id/recipeReduce"
+            app:layout_constraintTop_toTopOf="@id/recipeReduce" />
+
+        <Constraint
             android:id="@id/recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -61,7 +79,7 @@
             android:layout_marginTop="@dimen/marginRegular"
             android:layout_marginEnd="@dimen/marginMedium"
             app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recipeReduce"
             app:layout_constraintStart_toStartOf="parent">
 
             <CustomAttribute
@@ -114,13 +132,32 @@
             app:layout_constraintTop_toTopOf="@id/recipeBack" />
 
         <Constraint
+            android:id="@id/recipeReduce"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:rotation="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/recipeReduceAlpha"
+            android:layout_width="@dimen/toolbarButtonSize"
+            android:layout_height="@dimen/toolbarButtonSize"
+            android:alpha="1"
+            android:rotation="0"
+            app:layout_constraintBottom_toBottomOf="@id/recipeReduce"
+            app:layout_constraintEnd_toEndOf="@id/recipeReduce"
+            app:layout_constraintStart_toStartOf="@id/recipeReduce"
+            app:layout_constraintTop_toTopOf="@id/recipeReduce" />
+
+        <Constraint
             android:id="@id/recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginRegular"
             android:layout_marginEnd="@dimen/marginRegular"
             app:layout_constraintBottom_toBottomOf="@id/recipeBack"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recipeReduce"
             app:layout_constraintStart_toEndOf="@id/recipeBack"
             app:layout_constraintTop_toTopOf="@id/recipeBack">
 

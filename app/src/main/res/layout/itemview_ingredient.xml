@@ -5,7 +5,7 @@
     android:id="@+id/ingredientRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/foreground_light_round"
+    android:background="@drawable/foreground_light"
     android:padding="@dimen/paddingMedium">
 
     <TextView
