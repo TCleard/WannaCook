@@ -1,6 +1,8 @@
 package com.tcleard.wannacook.scene.recipe
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import com.tcleard.wannacook.R
@@ -93,17 +95,51 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
         }
     }
 
-    override fun showFabColor(color: Int?) {
-        recipeImage.setBackgroundColor((color
-                ?: resources.getColor(R.color.colorPrimary)).withAlpha(0.4f))
+    override fun showRecipeColor(color: Int?) {
+        val uColor = color
+                ?: resources.getColor(R.color.colorPrimary)
+        recipeImage.setBackgroundColor(uColor.withAlpha(0.4f))
+        recipeName.setTextColor(uColor)
+        recipePagerIndicator.selectedColor = uColor
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            recipeExpander.backgroundTintList = ColorStateList.valueOf(uColor)
+            recipeBackground.backgroundTintList = ColorStateList.valueOf(uColor)
+        }
     }
 
     override fun showName(name: String) {
         recipeName.text = name
+        recipeNameWhite.text = name
     }
 
     override fun showFragments(fragments: List<ARecipeFragment<*>>) {
         adapter.setFragments(fragments)
+    }
+
+    override fun showPreparationTime(preparation: String?) {
+        if (preparation != null) {
+            recipePreparationIcon.visibility = View.VISIBLE
+            recipePreparationText.visibility = View.VISIBLE
+            recipePreparationText.text = preparation
+        } else{
+            recipePreparationIcon.visibility = View.GONE
+            recipePreparationText.visibility = View.GONE
+        }
+    }
+
+    override fun showCookingTime(cooking: String?) {
+        if (cooking != null) {
+            recipeCookingIcon.visibility = View.VISIBLE
+            recipeCookingText.visibility = View.VISIBLE
+            recipeCookingText.text = cooking
+        } else{
+            recipeCookingIcon.visibility = View.GONE
+            recipeCookingText.visibility = View.GONE
+        }
+    }
+
+    override fun showLevel(level: Int) {
+        recipeDifficultyText.setText(level)
     }
 
     /** Listeners **/

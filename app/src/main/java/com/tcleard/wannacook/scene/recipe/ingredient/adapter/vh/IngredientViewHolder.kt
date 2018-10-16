@@ -28,7 +28,11 @@ class IngredientViewHolder(
             components.add(resources.getString(R.string.connector))
         }
 
-        components.add(item.getName())
+        if (components.isEmpty()) {
+            components.add(item.getName())
+        } else {
+            components.add(item.getName().decapitalize())
+        }
 
         itemView.ingredientContent.text = components.joinToString(" ")
 

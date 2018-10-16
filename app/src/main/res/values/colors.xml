@@ -10,6 +10,9 @@
 
     <color name="mainBackground">#F3F3F7</color>
 
+    <color name="black">#000000</color>
+    <color name="blackAlpha">#80000000</color>
+
     <color name="white">#FFFFFF</color>
     <color name="whiteAlpha">#80FFFFFF</color>
 

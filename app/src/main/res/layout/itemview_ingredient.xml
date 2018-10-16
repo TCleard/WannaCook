@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/foreground_light"
-    android:padding="@dimen/paddingMedium">
+    android:paddingRight="@dimen/paddingMedium"
+    android:paddingLeft="@dimen/paddingMedium"
+    android:paddingTop="@dimen/paddingRegular"
+    android:paddingBottom="@dimen/paddingRegular">
 
     <TextView
         android:id="@+id/ingredientStart"

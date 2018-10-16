@@ -12,6 +12,11 @@
 
     <string name="connector">de</string>
 
+    <!-- Level -->
+    <string name="easy">Facile</string>
+    <string name="medium">Moyen</string>
+    <string name="hard">Difficile</string>
+
     <!-- SharedElements -->
     <string name="sharedRecipeImage">recipeImage</string>
 

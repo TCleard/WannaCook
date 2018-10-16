@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/ingredientTitle"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/ingredientIcon"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:layout_margin="@dimen/marginMedium"
+        android:src="@mipmap/ingredients"
+        android:tint="@color/dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,22 +22,12 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/paddingMedium"
         android:text="@string/recipeIngredients"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/dark"
         android:textSize="@dimen/textMedium"
-        app:layout_constraintEnd_toStartOf="@id/ingredientIcon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ingredientIcon"
-        android:layout_width="@dimen/iconMediumSize"
-        android:layout_height="@dimen/iconMediumSize"
-        android:layout_marginRight="@dimen/marginMedium"
-        android:src="@mipmap/ingredients"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@id/ingredientTitle"
+        app:layout_constraintBottom_toBottomOf="@id/ingredientIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ingredientTitle" />
+        app:layout_constraintStart_toEndOf="@id/ingredientIcon"
+        app:layout_constraintTop_toTopOf="@id/ingredientIcon" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ingredientList"
@@ -46,6 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ingredientTitle" />
+        app:layout_constraintTop_toBottomOf="@id/ingredientTitle"
+        tools:listitem="@layout/itemview_ingredient" />
 
 </android.support.constraint.ConstraintLayout>

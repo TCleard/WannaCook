@@ -25,6 +25,6 @@ class IngredientViewModel(
         else -> true
     }
 
-    fun getName(): String = model.name.decapitalize()
+    fun getName(): String = model.name
 
 }

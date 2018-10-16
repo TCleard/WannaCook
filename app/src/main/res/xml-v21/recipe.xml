@@ -5,174 +5,193 @@
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start"
-        app:duration="@android:integer/config_shortAnimTime"
-        app:interpolator="easeOut">
+        app:duration="@android:integer/config_mediumAnimTime">
 
-        <OnClick app:target="@id/recipeReduce" />
+        <OnClick app:target="@id/recipeExpander" />
+
+        <KeyFrameSet>
+
+            <KeyPosition
+                app:framePosition="30"
+                app:keyPositionType="deltaRelative"
+                app:pathMotionArc="startHorizontal"
+                app:percentX="0.8"
+                app:percentY="0.3"
+                app:target="@id/recipeExpander" />
+
+        </KeyFrameSet>
 
     </Transition>
 
-    <ConstraintSet
-        android:id="@+id/start"
-        app:pathMotionArc="startHorizontal">
-
-        <Constraint
-            android:id="@id/recipeImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:alpha="1"
-            app:layout_constraintDimensionRatio="H,16:9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeImageBackground"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ConstraintSet android:id="@+id/start">
 
         <Constraint
             android:id="@id/recipeBack"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:layout_marginTop="@dimen/statusBarHeight"
+            android:layout_width="@dimen/iconMediumSize"
+            android:layout_height="@dimen/iconMediumSize"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginBig"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeBackAlpha"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:alpha="0"
-            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
-            app:layout_constraintEnd_toEndOf="@id/recipeBack"
-            app:layout_constraintStart_toStartOf="@id/recipeBack"
-            app:layout_constraintTop_toTopOf="@id/recipeBack" />
-
-        <Constraint
-            android:id="@id/recipeReduce"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:rotation="-180"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeReduceAlpha"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:alpha="0"
-            android:rotation="-180"
-            app:layout_constraintBottom_toBottomOf="@id/recipeReduce"
-            app:layout_constraintEnd_toEndOf="@id/recipeReduce"
-            app:layout_constraintStart_toStartOf="@id/recipeReduce"
-            app:layout_constraintTop_toTopOf="@id/recipeReduce" />
 
         <Constraint
             android:id="@id/recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginMedium"
-            android:layout_marginEnd="@dimen/marginMedium"
+            android:layout_marginStart="@dimen/marginBig"
+            android:layout_marginTop="@dimen/marginBig"
+            android:layout_marginEnd="@dimen/marginBig"
             android:layout_marginBottom="@dimen/marginMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeBack" />
+
+        <Constraint
+            android:id="@id/recipeNameWhite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@id/recipeName"
+            app:layout_constraintEnd_toEndOf="@id/recipeName"
+            app:layout_constraintStart_toStartOf="@id/recipeName"
+            app:layout_constraintTop_toTopOf="@id/recipeName" />
+
+        <Constraint
+            android:id="@id/recipeImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginBottom="@dimen/marginBig"
+            app:layout_constraintBottom_toTopOf="@id/recipeExpander"
+            app:layout_constraintEnd_toEndOf="@id/recipeGLImageEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeName" />
+
+        <Constraint
+            android:id="@id/recipeImageOver"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0"
             app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toStartOf="@id/recipeReduce"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintEnd_toEndOf="@id/recipeImage"
+            app:layout_constraintStart_toStartOf="@id/recipeImage"
+            app:layout_constraintTop_toTopOf="@id/recipeImage" />
 
-            <CustomAttribute
-                app:attributeName="maxLines"
-                app:customIntegerValue="2" />
+        <Constraint
+            android:id="@id/recipeExpander"
+            android:layout_width="@dimen/fabSize"
+            android:layout_height="@dimen/fabSize"
+            android:layout_marginStart="@dimen/marginBig"
+            android:layout_marginTop="@dimen/marginBig"
+            android:layout_marginEnd="@dimen/marginBig"
+            android:layout_marginBottom="@dimen/marginBig"
+            android:scaleX="1"
+            android:scaleY="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <CustomAttribute
-                app:attributeName="textColor"
-                app:customColorValue="@color/white" />
+        <Constraint
+            android:id="@id/recipePager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
 
-        </Constraint>
+        <Constraint
+            android:id="@id/recipePagerIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
 
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
 
         <Constraint
-            android:id="@id/recipeImage"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/statusToolbarHeight"
-            android:alpha="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeImageBackground"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
             android:id="@id/recipeBack"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:layout_marginTop="@dimen/statusBarHeight"
+            android:layout_width="@dimen/iconMediumSize"
+            android:layout_height="@dimen/iconMediumSize"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginBig"
+            android:elevation="@dimen/fabElevation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeBackAlpha"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:alpha="1"
-            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
-            app:layout_constraintEnd_toEndOf="@id/recipeBack"
-            app:layout_constraintStart_toStartOf="@id/recipeBack"
-            app:layout_constraintTop_toTopOf="@id/recipeBack" />
-
-        <Constraint
-            android:id="@id/recipeReduce"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:layout_marginTop="@dimen/statusBarHeight"
-            android:rotation="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@id/recipeReduceAlpha"
-            android:layout_width="@dimen/toolbarButtonSize"
-            android:layout_height="@dimen/toolbarButtonSize"
-            android:alpha="1"
-            android:rotation="0"
-            app:layout_constraintBottom_toBottomOf="@id/recipeReduce"
-            app:layout_constraintEnd_toEndOf="@id/recipeReduce"
-            app:layout_constraintStart_toStartOf="@id/recipeReduce"
-            app:layout_constraintTop_toTopOf="@id/recipeReduce" />
 
         <Constraint
             android:id="@id/recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginRegular"
-            android:layout_marginEnd="@dimen/marginRegular"
-            app:layout_constraintBottom_toBottomOf="@id/recipeBack"
-            app:layout_constraintEnd_toStartOf="@id/recipeReduce"
-            app:layout_constraintStart_toEndOf="@id/recipeBack"
-            app:layout_constraintTop_toTopOf="@id/recipeBack">
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginEnd="@dimen/marginMedium"
+            app:layout_constraintEnd_toStartOf="@id/recipeExpander"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeBack" />
 
-            <CustomAttribute
-                app:attributeName="maxLines"
-                app:customIntegerValue="1" />
+        <Constraint
+            android:id="@id/recipeNameWhite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="@id/recipeName"
+            app:layout_constraintEnd_toEndOf="@id/recipeName"
+            app:layout_constraintStart_toStartOf="@id/recipeName"
+            app:layout_constraintTop_toTopOf="@id/recipeName" />
 
-            <CustomAttribute
-                app:attributeName="textColor"
-                app:customColorValue="@color/dark" />
+        <Constraint
+            android:id="@id/recipeImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/recipeName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </Constraint>
+        <Constraint
+            android:id="@id/recipeImageOver"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="@id/recipeImage"
+            app:layout_constraintStart_toStartOf="@id/recipeImage"
+            app:layout_constraintTop_toTopOf="@id/recipeImage" />
+
+        <Constraint
+            android:id="@id/recipeExpander"
+            android:layout_width="@dimen/fabSize"
+            android:layout_height="@dimen/fabSize"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginEnd="@dimen/marginMedium"
+            android:layout_marginBottom="@dimen/marginMedium"
+            android:rotation="-180"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+
+        <Constraint
+            android:id="@id/recipePager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+
+        <Constraint
+            android:id="@id/recipePagerIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </ConstraintSet>
 
