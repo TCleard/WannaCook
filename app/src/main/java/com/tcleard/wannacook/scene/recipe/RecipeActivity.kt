@@ -40,7 +40,6 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
-        setLayoutBelowStatusBar(true)
 
         recipeBack.setOnClickListener(this)
 
@@ -62,6 +61,16 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        setLayoutBelowStatusBar(true)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        setLayoutBelowStatusBar(false)
+    }
+
     override fun onBackPressed() {
         if (recipeRoot.progress > 0f && recipeRoot.currentState != -1) {
             recipeRoot.currentState
@@ -69,11 +78,6 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
         } else {
             super.onBackPressed()
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        setLayoutBelowStatusBar(false)
     }
 
     /** RecipeView **/
@@ -121,7 +125,7 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
             recipePreparationIcon.visibility = View.VISIBLE
             recipePreparationText.visibility = View.VISIBLE
             recipePreparationText.text = preparation
-        } else{
+        } else {
             recipePreparationIcon.visibility = View.GONE
             recipePreparationText.visibility = View.GONE
         }
@@ -132,7 +136,7 @@ class RecipeActivity : AActivity<RecipePresenter>(), RecipePresenter.RecipeView,
             recipeCookingIcon.visibility = View.VISIBLE
             recipeCookingText.visibility = View.VISIBLE
             recipeCookingText.text = cooking
-        } else{
+        } else {
             recipeCookingIcon.visibility = View.GONE
             recipeCookingText.visibility = View.GONE
         }

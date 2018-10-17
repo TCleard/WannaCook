@@ -1,11 +1,11 @@
 package com.tcleard.wannacook.scene.main
 
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.model.Recipe
+import com.tcleard.wannacook.scene.edit.EditRecipeActivity
 import com.tcleard.wannacook.scene.main.adapter.MainAdapter
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
 import com.tcleard.wannacook.scene.recipe.RecipeActivity
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.include_toolbar.view.*
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
-class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
+class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.OnClickListener {
 
     @Inject
     lateinit var adapter: MainAdapter
@@ -34,6 +34,8 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
             baseToolbarY = mainToolbarLayout.y
             baseFabY = mainAdd.y
         }
+
+        mainAdd.setOnClickListener(this)
 
         DaggerMainComponent.builder()
                 .appComponent(appComponent)
@@ -75,6 +77,15 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView {
                 .with(recipe)
                 .addSharedElement(imageView, R.string.sharedRecipeImage)
                 .start()
+    }
+
+    /** Listeners **/
+
+    override fun onClick(v: View?) {
+        when (v) {
+            mainAdd -> EditRecipeActivity.builder(this)
+                    .start()
+        }
     }
 
 }
