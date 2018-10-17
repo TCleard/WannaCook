@@ -9,6 +9,10 @@
 
         <OnClick app:target="@id/recipeExpander" />
 
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@id/recipeExpander" />
+
         <KeyFrameSet>
 
             <KeyPosition
@@ -57,7 +61,7 @@
             app:layout_constraintTop_toTopOf="@id/recipeName" />
 
         <Constraint
-            android:id="@id/recipeImage"
+            android:id="@id/recipeImageContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/marginMedium"
@@ -72,10 +76,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:alpha="0"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="@id/recipeImage"
-            app:layout_constraintStart_toStartOf="@id/recipeImage"
-            app:layout_constraintTop_toTopOf="@id/recipeImage" />
+            app:layout_constraintBottom_toBottomOf="@id/recipeImageContainer"
+            app:layout_constraintEnd_toEndOf="@id/recipeImageContainer"
+            app:layout_constraintStart_toStartOf="@id/recipeImageContainer"
+            app:layout_constraintTop_toTopOf="@id/recipeImageContainer" />
 
         <Constraint
             android:id="@id/recipeExpander"
@@ -94,7 +98,7 @@
         <Constraint
             android:id="@id/recipePager"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent" />
@@ -137,10 +141,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:alpha="1"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
-            app:layout_constraintEnd_toEndOf="@id/recipeImage"
-            app:layout_constraintStart_toStartOf="@id/recipeImage"
-            app:layout_constraintTop_toTopOf="@id/recipeImage" />
+            app:layout_constraintBottom_toBottomOf="@id/recipeImageContainer"
+            app:layout_constraintEnd_toEndOf="@id/recipeImageContainer"
+            app:layout_constraintStart_toStartOf="@id/recipeImageContainer"
+            app:layout_constraintTop_toTopOf="@id/recipeImageContainer" />
 
         <Constraint
             android:id="@id/recipeNameWhite"
@@ -153,7 +157,7 @@
             app:layout_constraintTop_toTopOf="@id/recipeName" />
 
         <Constraint
-            android:id="@id/recipeImage"
+            android:id="@id/recipeImageContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/recipeName"
@@ -172,9 +176,9 @@
             android:rotation="-180"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImage"
+            app:layout_constraintBottom_toBottomOf="@id/recipeImageContainer"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+            app:layout_constraintTop_toBottomOf="@id/recipeImageContainer" />
 
         <Constraint
             android:id="@id/recipePager"
@@ -183,7 +187,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+            app:layout_constraintTop_toBottomOf="@id/recipeImageContainer" />
 
         <Constraint
             android:id="@id/recipePagerIndicator"

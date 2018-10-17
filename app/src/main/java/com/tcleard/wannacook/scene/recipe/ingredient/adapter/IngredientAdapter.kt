@@ -14,4 +14,8 @@ class IngredientAdapter : AViewModelAdapter<IngredientViewModel, IngredientViewH
         holder.bind(items[position])
     }
 
+    override fun getSpanCount(): Int = 2
+
+    override fun getSpanSize(position: Int): Int = 1
+
 }

@@ -38,7 +38,7 @@ class IngredientFragment : ARecipeFragment<IngredientPresenter>(), IngredientPre
 
         presenter.setRecipe(recipe)
 
-        ingredientList.layoutManager = LinearLayoutManager(requireContext())
+        ingredientList.layoutManager = adapter.generateLayoutManager(requireContext())
         ingredientList.adapter = adapter
 
         ingredientPeopleMinus.setOnClickListener(this)

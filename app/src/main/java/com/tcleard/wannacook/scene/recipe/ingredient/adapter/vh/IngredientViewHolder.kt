@@ -10,12 +10,6 @@ class IngredientViewHolder(
         parent: ViewGroup
 ) : AViewHolder<IngredientViewModel>(parent, R.layout.itemview_ingredient) {
 
-    init {
-        itemView.ingredientRoot.setOnClickListener {
-            itemView.ingredientCheck.toggle()
-        }
-    }
-
     override fun bind(item: IngredientViewModel) {
         super.bind(item)
 
@@ -34,7 +28,7 @@ class IngredientViewHolder(
             components.add(item.getName().decapitalize())
         }
 
-        itemView.ingredientContent.text = components.joinToString(" ")
+        itemView.ingredientCheck.text = components.joinToString(" ")
 
     }
 

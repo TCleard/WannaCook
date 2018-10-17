@@ -2,14 +2,14 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipeRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/marginRegular"
-    app:cardCornerRadius="@dimen/itemCornerRadius"
+    android:stateListAnimator="@animator/item_sate_list"
     app:cardElevation="@dimen/itemElevationRest">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/recipeRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_white">

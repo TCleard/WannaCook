@@ -5,45 +5,19 @@
     android:id="@+id/ingredientRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/foreground_light"
-    android:paddingRight="@dimen/paddingMedium"
-    android:paddingLeft="@dimen/paddingMedium"
-    android:paddingTop="@dimen/paddingRegular"
-    android:paddingBottom="@dimen/paddingRegular">
-
-    <TextView
-        android:id="@+id/ingredientStart"
-        style="@style/TextStyleRegular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="•"
-        android:textColor="@color/dark"
-        android:textSize="@dimen/textRegular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/ingredientContent"
-        style="@style/TextStyleRegular"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/marginSmall"
-        android:layout_marginRight="@dimen/marginSmall"
-        android:textColor="@color/dark"
-        android:textSize="@dimen/textRegular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ingredientCheck"
-        app:layout_constraintStart_toEndOf="@id/ingredientStart"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ingredient Name" />
+    android:padding="@dimen/paddingMedium">
 
     <CheckBox
         android:id="@+id/ingredientCheck"
-        android:layout_width="@dimen/iconMediumSize"
-        android:layout_height="@dimen/iconMediumSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/textRegular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ingredient Name" />
 
 </android.support.constraint.ConstraintLayout>

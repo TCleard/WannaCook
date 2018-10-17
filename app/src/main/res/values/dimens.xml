@@ -20,13 +20,13 @@
     <dimen name="textBig">21sp</dimen>
     <dimen name="textLarge">24sp</dimen>
 
-
+    <!-- StatusBar -->
     <dimen name="statusBarHeight">24dp</dimen>
     <dimen name="statusToolbarHeight">80dp</dimen>
 
     <!-- Toolbar -->
     <dimen name="toolbarHeight">56dp</dimen>
-    <dimen name="toolbarElevation">4dp</dimen>
+    <dimen name="toolbarElevation">6dp</dimen>
     <dimen name="toolbarButtonSize">@dimen/toolbarHeight</dimen>
 
     <!-- Icon -->
@@ -36,13 +36,14 @@
     <dimen name="iconBigSize">48dp</dimen>
 
     <!-- Item -->
-    <dimen name="itemElevationRest">1dp</dimen>
-    <dimen name="itemElevationPressed">3dp</dimen>
+    <dimen name="itemElevationRest">2dp</dimen>
+    <dimen name="itemElevationPressed">5dp</dimen>
+    <dimen name="itemElevationDisabled">0dp</dimen>
     <dimen name="itemCornerRadius">@dimen/paddingSmall</dimen>
 
     <!-- Fab -->
     <dimen name="fabSize">56dp</dimen>
-    <dimen name="fabElevation">6dp</dimen>
+    <dimen name="fabElevation">8dp</dimen>
 
     <!-- Button -->
     <dimen name="buttonCornerRadius">@dimen/paddingRegular</dimen>
@@ -50,5 +51,6 @@
 
     <!-- Recipe Item -->
     <dimen name="recipeItemHeight">256dp</dimen>
+    <dimen name="recipeImageCornerRadius">2dp</dimen>
 
 </resources>

@@ -31,6 +31,7 @@
 
     <TextView
         android:id="@+id/ingredientPeopleFor"
+        style="@style/TextStyleRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginMedium"
@@ -55,6 +56,7 @@
 
     <TextView
         android:id="@+id/ingredientPeopleCount"
+        style="@style/TextStyleRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginSmall"
@@ -79,6 +81,7 @@
 
     <TextView
         android:id="@+id/ingredientPeopleText"
+        style="@style/TextStyleRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginSmall"
