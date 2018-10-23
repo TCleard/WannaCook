@@ -63,6 +63,24 @@ abstract class AItemAdapter<I, VH : AViewHolder<*>> : RecyclerView.Adapter<VH>()
         }
     }
 
+    open fun remove(predicate: (I) -> Boolean) {
+        var position = 0
+        val iterator = items.iterator()
+        while (iterator.hasNext()) {
+            if (predicate.invoke(iterator.next())) {
+                iterator.remove()
+                notifyItemRemoved(position)
+                break
+            }
+            position++
+        }
+    }
+
+    open fun removeAll() {
+        items.clear()
+        notifyDataSetChanged()
+    }
+
     fun generateLayoutManager(context: Context): RecyclerView.LayoutManager {
         val layoutManager = GridLayoutManager(context, getSpanCount())
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {

@@ -25,16 +25,7 @@ abstract class AViewModelAdapter<VM : AViewModel<*>, VH : AViewHolder<*>> :
     }
 
     open fun removeWithId(id: String?) {
-        var position = 0
-        val iterator = items.iterator()
-        while (iterator.hasNext()) {
-            if (iterator.next().getId() == id) {
-                iterator.remove()
-                notifyItemRemoved(position)
-                break
-            }
-            position++
-        }
+        remove { it.getId() == id }
     }
 
     open fun remove(items: List<VM>) {
@@ -42,16 +33,7 @@ abstract class AViewModelAdapter<VM : AViewModel<*>, VH : AViewHolder<*>> :
     }
 
     open fun removeWithIds(ids: List<String?>) {
-        var position = 0
-        val iterator = items.iterator()
-        while (iterator.hasNext()) {
-            if (ids.contains(iterator.next().getId())) {
-                iterator.remove()
-                notifyItemRemoved(position)
-            } else {
-                position++
-            }
-        }
+        remove { it.getId() in ids }
     }
 
 }

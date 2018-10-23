@@ -1,9 +1,9 @@
-package com.tcleard.wannacook.scene.edit.tag.adapter.vm
+package com.tcleard.wannacook.ui.adapter.tag.vm
 
 import com.tcleard.wannacook.core.model.Tag
 import com.tcleard.wannacook.ui.adapter.AViewModel
 
-class RecipeTagViewModel(
+class TagViewModel(
         tag: Tag,
         private val isDeletable : Boolean
 ) : AViewModel<Tag>(tag) {

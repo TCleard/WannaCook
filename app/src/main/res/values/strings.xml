@@ -3,6 +3,7 @@
     <string name="app_name">WannaCook</string>
 
     <!-- Commons -->
+    <string name="close">Fermer</string>
     <string name="quit">Quitter</string>
     <string name="back">Retour</string>
     <string name="next">Suivant</string>
@@ -49,6 +50,9 @@
 
     <string name="editTagHeader">Ajoutez-lui des tags.</string>
     <string name="editTagAdd">Ajouter</string>
-    <string name="editTagSearch">Rechercher des tags</string>
+
+    <!-- TagSearch -->
+    <string name="tagSearchHint">Rechercher des tags</string>
+    <string name="tagSearchMinSize">3 char. min</string>
 
 </resources>

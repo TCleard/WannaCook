@@ -1,17 +1,18 @@
-package com.tcleard.wannacook.scene.edit.tag.adapter.vh
+package com.tcleard.wannacook.ui.adapter.tag.vh
 
 import android.view.View
 import android.view.ViewGroup
 import com.tcleard.wannacook.R
-import com.tcleard.wannacook.scene.edit.tag.adapter.vm.RecipeTagViewModel
+import com.tcleard.wannacook.ui.adapter.AViewHolder
+import com.tcleard.wannacook.ui.adapter.tag.vm.TagViewModel
 import kotlinx.android.synthetic.main.itemview_tag.view.*
 
-class RecipeTagViewHolder(
+class TagViewHolder(
         parent: ViewGroup
-) : ARecipeTagViewHolder(parent, R.layout.itemview_tag) {
+) : AViewHolder<TagViewModel>(parent, R.layout.itemview_tag) {
 
-    var onClickListener: ((RecipeTagViewModel) -> Unit)? = null
-    var onRemoveClickListener: ((RecipeTagViewModel) -> Unit)? = null
+    var onClickListener: ((TagViewModel) -> Unit)? = null
+    var onRemoveClickListener: ((TagViewModel) -> Unit)? = null
 
     init {
         itemView.tagBackground.setOnClickListener {
@@ -26,7 +27,7 @@ class RecipeTagViewHolder(
         }
     }
 
-    override fun bind(item: RecipeTagViewModel) {
+    override fun bind(item: TagViewModel) {
         super.bind(item)
         itemView.tagName.text = item.getName()
 

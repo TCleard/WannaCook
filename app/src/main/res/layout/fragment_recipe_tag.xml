@@ -23,16 +23,54 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recipeTagList"
+        android:id="@+id/recipeSelectedTagList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:layout_height="@dimen/paddingLarge"
+        android:layout_marginTop="@dimen/marginRegular"
+        android:clipToPadding="false"
+        android:padding="@dimen/paddingRegular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipeTagHeader"
+        tools:listitem="@layout/itemview_tag" />
+
+    <EditText
+        android:id="@+id/recipeTagSearch"
+        style="@style/EditStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginMedium"
+        android:hint="@string/tagSearchHint"
+        android:inputType="text"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipeSelectedTagList" />
+
+    <TextView
+        android:id="@+id/recipeTagSearchExtra"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingSmall"
+        android:text="@string/tagSearchMinSize"
+        android:textColor="@color/red"
+        android:textSize="@dimen/textTiny"
+        app:layout_constraintBottom_toBottomOf="@id/recipeTagSearch"
+        app:layout_constraintEnd_toEndOf="@id/recipeTagSearch" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recipeSearchTagList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginRegular"
         android:clipToPadding="false"
         android:padding="@dimen/paddingRegular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recipeTagHeader"
+        app:layout_constraintTop_toBottomOf="@id/recipeTagSearch"
         tools:listitem="@layout/itemview_tag" />
 
 </android.support.constraint.ConstraintLayout>

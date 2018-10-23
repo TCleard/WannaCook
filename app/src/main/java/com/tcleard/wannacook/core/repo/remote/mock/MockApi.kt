@@ -5,11 +5,13 @@ import com.tcleard.wannacook.core.model.Ingredient
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.core.model.Recipe.Type
 import com.tcleard.wannacook.core.model.Step
+import com.tcleard.wannacook.core.model.Tag
 
 class MockApi {
 
     private val types = arrayListOf<Type>()
     private val recipes = arrayListOf<Recipe>()
+    private val tags = arrayListOf<Tag>()
 
     init {
 
@@ -101,10 +103,65 @@ class MockApi {
 
         recipes.add(recipe2)
 
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("saumon")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("crêpes")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("barbecue")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("sucré")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("salé")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("dessert")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("poisson")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("bien manger")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("vegan")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("léger")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("coloré")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("croquant")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("fondant")
+                .build())
+
     }
 
     fun getRecipes(): List<Recipe> = recipes
 
     fun getRecipe(id: String): Recipe? = recipes.firstOrNull { it.id == id }
+
+    fun getTags(query: String): List<Tag> = tags.filter { it.name.contains(query) }
 
 }
