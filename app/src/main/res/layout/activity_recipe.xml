@@ -32,6 +32,7 @@
         android:layout_height="@dimen/iconMediumSize"
         android:layout_margin="@dimen/marginRegular"
         android:background="@drawable/background_white_round"
+        android:elevation="@dimen/fabElevation"
         android:padding="@dimen/paddingRegular"
         android:scaleType="centerInside"
         android:src="@mipmap/back"

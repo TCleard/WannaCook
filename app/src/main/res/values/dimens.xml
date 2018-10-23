@@ -13,12 +13,12 @@
     <dimen name="marginBig">32dp</dimen>
     <dimen name="marginLarge">64dp</dimen>
 
-    <dimen name="textTiny">9sp</dimen>
-    <dimen name="textSmall">12sp</dimen>
-    <dimen name="textRegular">15sp</dimen>
-    <dimen name="textMedium">18sp</dimen>
-    <dimen name="textBig">21sp</dimen>
-    <dimen name="textLarge">24sp</dimen>
+    <dimen name="textTiny">11sp</dimen>
+    <dimen name="textSmall">13sp</dimen>
+    <dimen name="textRegular">16sp</dimen>
+    <dimen name="textMedium">19sp</dimen>
+    <dimen name="textBig">23sp</dimen>
+    <dimen name="textLarge">27sp</dimen>
 
     <!-- StatusBar -->
     <dimen name="statusBarHeight">24dp</dimen>
@@ -27,6 +27,7 @@
     <!-- Toolbar -->
     <dimen name="toolbarHeight">56dp</dimen>
     <dimen name="toolbarElevation">6dp</dimen>
+    <dimen name="toolbarIconSize">24dp</dimen>
     <dimen name="toolbarButtonSize">@dimen/toolbarHeight</dimen>
 
     <!-- Icon -->
@@ -47,6 +48,20 @@
 
     <!-- Button -->
     <dimen name="buttonCornerRadius">@dimen/paddingRegular</dimen>
+
+    <!-- Edit -->
+    <dimen name="editCornerRadius">@dimen/paddingRegular</dimen>
+    <dimen name="editVerticalPadding">12dp</dimen>
+    <dimen name="editHorizontalPadding">@dimen/paddingRegular</dimen>
+
+    <!-- Tag -->
+    <dimen name="tagCornerRadius">@dimen/paddingBig</dimen>
+    <dimen name="tagStroke">1dp</dimen>
+
+    <!-- Loading -->
+    <dimen name="loadingSmall">48dp</dimen>
+    <dimen name="loadingRegular">80dp</dimen>
+    <dimen name="loadingBig">128dp</dimen>
 
 
     <!-- Recipe Item -->

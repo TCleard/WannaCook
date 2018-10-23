@@ -2,6 +2,12 @@
 
     <string name="app_name">WannaCook</string>
 
+    <!-- Commons -->
+    <string name="quit">Quitter</string>
+    <string name="back">Retour</string>
+    <string name="next">Suivant</string>
+    <string name="send">Envoyer</string>
+
     <!-- Units -->
     <string name="kg">Kilogramme(s)</string>
     <string name="g">Gramme(s)</string>
@@ -37,5 +43,12 @@
     <!-- Edit -->
     <string name="editNew">Créer une recette</string>
     <string name="editOld">Éditer une recette</string>
+
+    <string name="editTitleHeader">Donnez un titre à votre recette.</string>
+    <string name="editTitleMinSize">5 char. min</string>
+
+    <string name="editTagHeader">Ajoutez-lui des tags.</string>
+    <string name="editTagAdd">Ajouter</string>
+    <string name="editTagSearch">Rechercher des tags</string>
 
 </resources>

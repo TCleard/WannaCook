@@ -1,6 +1,7 @@
 package com.tcleard.wannacook.scene.main
 
 import android.os.Bundle
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import android.widget.ImageView
 import com.tcleard.wannacook.R
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.include_toolbar.view.*
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
-class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.OnClickListener {
+class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     @Inject
     lateinit var adapter: MainAdapter
@@ -33,7 +34,10 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.On
         mainRoot.post {
             baseToolbarY = mainToolbarLayout.y
             baseFabY = mainAdd.y
+            mainPTR.setProgressViewOffset(false, baseToolbarY.toInt(), (mainToolbarLayout.y + (mainToolbarLayout.height * 2)).toInt())
         }
+
+        mainPTR.setOnRefreshListener(this)
 
         mainAdd.setOnClickListener(this)
 
@@ -55,6 +59,10 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.On
 
     override fun showRecipes(viewModels: List<RecipeViewModel>) {
         adapter.setItems(viewModels)
+    }
+
+    override fun showLoading(loading: Boolean) {
+        mainPTR.isRefreshing = loading
     }
 
     override fun goToRecipe(recipe: Recipe, imageView: ImageView) {
@@ -86,6 +94,10 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.On
             mainAdd -> EditRecipeActivity.builder(this)
                     .start()
         }
+    }
+
+    override fun onRefresh() {
+        presenter.refreshRecipes()
     }
 
 }

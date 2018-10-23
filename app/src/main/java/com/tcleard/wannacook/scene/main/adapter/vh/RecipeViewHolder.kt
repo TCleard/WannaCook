@@ -6,13 +6,12 @@ import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.extension.withAlpha
 import com.tcleard.wannacook.core.manager.IImageManager
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
-import com.tcleard.wannacook.ui.adapter.AViewHolder
 import kotlinx.android.synthetic.main.itemview_recipe.view.*
 
 class RecipeViewHolder(
         parent: ViewGroup,
         private val imageManager: IImageManager
-) : AViewHolder<RecipeViewModel>(parent, R.layout.itemview_recipe) {
+) : ARecipeViewHolder(parent, R.layout.itemview_recipe) {
 
     private var imageRequest: IImageManager.ImageRequest? = null
 

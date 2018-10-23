@@ -121,7 +121,6 @@
             android:layout_height="@dimen/iconMediumSize"
             android:layout_marginStart="@dimen/marginMedium"
             android:layout_marginTop="@dimen/marginBig"
-            android:elevation="@dimen/fabElevation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

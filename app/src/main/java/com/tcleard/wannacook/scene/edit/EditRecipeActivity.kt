@@ -2,15 +2,14 @@ package com.tcleard.wannacook.scene.edit
 
 import android.content.Context
 import android.os.Bundle
-import android.view.MenuItem
+import android.view.View
 import com.tcleard.wannacook.R
-import com.tcleard.wannacook.core.extension.setHomeIcon
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.ui.controller.AActivity
 import kotlinx.android.synthetic.main.activity_edit_recipe.*
-import kotlinx.android.synthetic.main.include_toolbar.view.*
+import javax.inject.Inject
 
-class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter.EditView {
+class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter.EditView, View.OnClickListener {
 
     companion object {
 
@@ -31,30 +30,31 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
 
     }
 
+    @Inject
+    lateinit var adapter: EditRecipeFragmentAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_recipe)
 
-        setSupportActionBar(editToolbarLayout.toolbar)
-        supportActionBar?.setHomeIcon(R.mipmap.back)
-
         DaggerEditRecipeComponent.builder()
                 .appComponent(appComponent)
-                .editRecipeModule(EditRecipeModule())
+                .editRecipeModule(EditRecipeModule(this))
                 .build()
                 .inject(this)
 
         presenter.attach(this)
 
+        editPager.adapter = adapter
+        adapter.onFragmentSelected = {
+            presenter.onFragmentSelected(it)
+        }
+
+        editLeft.setOnClickListener(this)
+        editRight.setOnClickListener(this)
+
         presenter.setRecipe(intent.getSerializableExtra(EXTRA_RECIPE) as? Recipe)
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> onBackPressed()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     /** EditView **/
@@ -62,4 +62,43 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
     override fun showTitle(titleRes: Int) {
         supportActionBar?.setTitle(titleRes)
     }
+
+    override fun showFragments(fragments: List<AEditRecipeFragment<*>>) {
+        adapter.setFragments(fragments)
+        editPager.currentItem = 0
+    }
+
+    override fun showLeftButton(textRes: Int) {
+        editLeft.setText(textRes)
+    }
+
+    override fun showRightButton(textRes: Int) {
+        editRight.setText(textRes)
+    }
+
+    override fun showNextButtonEnabled(enable: Boolean) {
+        editRight.isEnabled = enable
+    }
+
+    override fun goToNext() {
+        editPager.goToNext()
+    }
+
+    override fun goToPrevious() {
+        editPager.goToPrevious()
+    }
+
+    override fun quit() {
+        finish()
+    }
+
+    /** Listeners **/
+
+    override fun onClick(v: View?) {
+        when (v) {
+            editLeft -> presenter.onLeftButtonClicked()
+            editRight -> presenter.onRightButtonClicked()
+        }
+    }
+
 }
