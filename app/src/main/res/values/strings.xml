@@ -8,6 +8,8 @@
     <string name="back">Retour</string>
     <string name="next">Suivant</string>
     <string name="send">Envoyer</string>
+    <string name="cancel">Annuler</string>
+    <string name="validate">Valider</string>
 
     <!-- Units -->
     <string name="kg">Kilogramme(s)</string>
@@ -16,6 +18,7 @@
     <string name="l">Litre(s)</string>
     <string name="cl">Centilitre(s)</string>
     <string name="sp">Cuillère(s)</string>
+    <string name="unitNone">Aucune</string>
 
     <string name="connector">de</string>
 
@@ -48,11 +51,29 @@
     <string name="editTitleHeader">Donnez un titre à votre recette.</string>
     <string name="editTitleMinSize">5 char. min</string>
 
-    <string name="editTagHeader">Ajoutez-lui des tags.</string>
+    <string name="editTagHeader">Ajoutez-lui des tags.\n(Au moins un)</string>
     <string name="editTagAdd">Ajouter</string>
+    <string name="editTagSearchHint">Rechercher des tags</string>
+    <string name="editTagSearchMinSize">3 char. min</string>
 
-    <!-- TagSearch -->
-    <string name="tagSearchHint">Rechercher des tags</string>
-    <string name="tagSearchMinSize">3 char. min</string>
+    <string name="editIngredientHeader">C\'est parti pour les ingrédients !</string>
+    <string name="editIngredientHowMany">Pour combien de personnes ?</string>
+    <string name="editIngredientAdd">Ajouter un ingrédient</string>
+
+    <!-- Ingredient -->
+    <string name="ingredientNew">Nouvel ingrédient</string>
+    <string name="ingredientUpdate">Édition de l\'ingrédient</string>
+    <string name="ingredientName">Nom de l\'ingrédient</string>
+    <string name="ingredientUnit">Unité : </string>
+    <string name="ingredientQuantity">Quantité : </string>
+    <plurals name="ingredientQuantityCount">
+        <item quantity="one">Indiquez la quantité pour %1$d personne.</item>
+        <item quantity="other">Indiquez la quantité pour %1$d personnes.</item>
+    </plurals>
+    <string name="ingredientValidate">@string/validate</string>
+    <string name="ingredientQuitTitle">Voulez-vous vraiment quitter ?</string>
+    <string name="ingredientQuitMessage">Vos changements ne seront pas sauvegardés.</string>
+    <string name="ingredientQuitPositive">@string/quit</string>
+    <string name="ingredientQuitNegative">@string/cancel</string>
 
 </resources>

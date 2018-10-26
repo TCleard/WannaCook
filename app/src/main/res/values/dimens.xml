@@ -14,11 +14,11 @@
     <dimen name="marginLarge">64dp</dimen>
 
     <dimen name="textTiny">11sp</dimen>
-    <dimen name="textSmall">13sp</dimen>
-    <dimen name="textRegular">16sp</dimen>
-    <dimen name="textMedium">19sp</dimen>
-    <dimen name="textBig">23sp</dimen>
-    <dimen name="textLarge">27sp</dimen>
+    <dimen name="textSmall">14sp</dimen>
+    <dimen name="textRegular">18sp</dimen>
+    <dimen name="textMedium">21sp</dimen>
+    <dimen name="textBig">25sp</dimen>
+    <dimen name="textLarge">29sp</dimen>
 
     <!-- StatusBar -->
     <dimen name="statusBarHeight">24dp</dimen>
@@ -27,13 +27,13 @@
     <!-- Toolbar -->
     <dimen name="toolbarHeight">56dp</dimen>
     <dimen name="toolbarElevation">6dp</dimen>
-    <dimen name="toolbarIconSize">24dp</dimen>
+    <dimen name="toolbarIconSize">16dp</dimen>
     <dimen name="toolbarButtonSize">@dimen/toolbarHeight</dimen>
 
     <!-- Icon -->
-    <dimen name="iconSmallSize">@dimen/paddingMedium</dimen>
-    <dimen name="iconRegularSize">24dp</dimen>
-    <dimen name="iconMediumSize">@dimen/paddingBig</dimen>
+    <dimen name="iconSmallSize">24dp</dimen>
+    <dimen name="iconRegularSize">@dimen/paddingBig</dimen>
+    <dimen name="iconMediumSize">36dp</dimen>
     <dimen name="iconBigSize">48dp</dimen>
 
     <!-- Item -->
@@ -42,16 +42,22 @@
     <dimen name="itemElevationDisabled">0dp</dimen>
     <dimen name="itemCornerRadius">@dimen/paddingSmall</dimen>
 
+    <!-- Divider -->
+    <dimen name="dividerSize">1dp</dimen>
+
     <!-- Fab -->
     <dimen name="fabSize">56dp</dimen>
     <dimen name="fabElevation">8dp</dimen>
 
     <!-- Button -->
     <dimen name="buttonCornerRadius">@dimen/paddingRegular</dimen>
+    <dimen name="buttonHeight">48dp</dimen>
+    <dimen name="buttonElevation">4dp</dimen>
 
     <!-- Edit -->
-    <dimen name="editCornerRadius">@dimen/paddingRegular</dimen>
+    <dimen name="editCornerRadius">@dimen/paddingSmall</dimen>
     <dimen name="editVerticalPadding">12dp</dimen>
+    <dimen name="editElevation">1dp</dimen>
     <dimen name="editHorizontalPadding">@dimen/paddingRegular</dimen>
 
     <!-- Tag -->
@@ -63,9 +69,13 @@
     <dimen name="loadingRegular">80dp</dimen>
     <dimen name="loadingBig">128dp</dimen>
 
-
     <!-- Recipe Item -->
     <dimen name="recipeItemHeight">256dp</dimen>
     <dimen name="recipeImageCornerRadius">2dp</dimen>
+
+    <!-- Ingredient -->
+    <dimen name="ingredientUnitItemWidth">180dp</dimen>
+    <dimen name="ingredientUnitItemHeight">48dp</dimen>
+    <dimen name="ingredientQuantityWidth">@dimen/paddingLarge</dimen>
 
 </resources>

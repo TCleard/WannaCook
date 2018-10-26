@@ -1,5 +1,6 @@
 package com.tcleard.wannacook.ui.controller
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -10,26 +11,40 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v4.util.Pair
 import android.support.v7.app.AppCompatActivity
 import android.transition.Transition
-import android.util.TypedValue
 import android.view.View
 import com.tcleard.wannacook.App
-import com.tcleard.wannacook.R
+import com.tcleard.wannacook.core.manager.IDialogManager
 import com.tcleard.wannacook.core.manager.IImageManager
+import com.tcleard.wannacook.core.manager.IKeyboardManager
 import com.tcleard.wannacook.core.presenter.APresenter
 import com.tcleard.wannacook.di.component.AppComponent
 import javax.inject.Inject
 
 
-abstract class AActivity<P : APresenter<*>> : AppCompatActivity() {
+abstract class AActivity<P : APresenter<*>> : AppCompatActivity(), IController {
 
     @Inject
     protected lateinit var presenter: P
 
     @Inject
+    protected lateinit var dialogManager: IDialogManager
+    @Inject
     protected lateinit var imageManager: IImageManager
+    @Inject
+    protected lateinit var keyboardManager: IKeyboardManager
 
     val appComponent: AppComponent
         get() = (application as App).component
+
+    override fun onResume() {
+        super.onResume()
+        keyboardManager.updateCurrentActivity(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        keyboardManager.updateCurrentActivity(null)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -102,9 +117,14 @@ abstract class AActivity<P : APresenter<*>> : AppCompatActivity() {
         }
     }
 
-    abstract class Builder(
-            private val context: Context
+    override fun provideContext(): Context = this
+
+    abstract class Builder constructor(
+            private val controller: IController
     ) {
+
+        private val context: Context
+            get() = controller.provideContext()
 
         protected val intent: Intent by lazy {
             Intent(context, activityClass)
@@ -123,21 +143,16 @@ abstract class AActivity<P : APresenter<*>> : AppCompatActivity() {
         }
 
         fun start() {
-            if (context is AppCompatActivity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && transitions.isNotEmpty()) {
-                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, *transitions.toTypedArray())
-                context.startActivity(intent, options.toBundle())
+            if (context is Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && transitions.isNotEmpty()) {
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, *transitions.toTypedArray())
+                controller.startActivity(intent, options.toBundle())
             } else {
-                context.startActivity(intent)
+                controller.startActivity(intent)
             }
         }
 
         fun startForResult(requestCode: Int) {
-            if (context is AppCompatActivity) {
-                context.startActivityForResult(intent, requestCode)
-            } else {
-                val contextClass = context.javaClass.simpleName
-                throw Throwable("Provided context must be an activity ($contextClass)")
-            }
+            controller.startActivityForResult(intent, requestCode)
         }
 
     }

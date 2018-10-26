@@ -19,8 +19,6 @@ abstract class AEditRecipeFragment<P : AEditRecipeFragment.Presenter<*>> : AFrag
                 field = value
                 if (field) {
                     onSelected()
-                } else {
-                    onDeselected()
                 }
             }
         }
@@ -49,9 +47,6 @@ abstract class AEditRecipeFragment<P : AEditRecipeFragment.Presenter<*>> : AFrag
         if (isPresenterReady) {
             presenter.onSelected()
         }
-    }
-
-    protected fun onDeselected() {
     }
 
     abstract class Presenter<V : IView> : APresenter<V>() {

@@ -9,7 +9,7 @@ import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.scene.edit.EditRecipeActivity
 import com.tcleard.wannacook.scene.main.adapter.MainAdapter
 import com.tcleard.wannacook.scene.main.adapter.vm.RecipeViewModel
-import com.tcleard.wannacook.scene.recipe.RecipeActivity
+import com.tcleard.wannacook.scene.recipe.DetailRecipeActivity
 import com.tcleard.wannacook.ui.controller.AActivity
 import com.tcleard.wannacook.ui.decoration.ComponentDecoration
 import kotlinx.android.synthetic.main.activity_main.*
@@ -81,7 +81,7 @@ class MainActivity : AActivity<MainPresenter>(), MainPresenter.MainView, View.On
                     .y(baseFabY)
                     .start()
         })
-        RecipeActivity.builder(this)
+        DetailRecipeActivity.builder(this)
                 .with(recipe)
                 .addSharedElement(imageView, R.string.sharedRecipeImage)
                 .start()

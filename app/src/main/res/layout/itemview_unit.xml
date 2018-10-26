@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/unitName"
+    style="@style/TextStyleRegular"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:autoSizeMaxTextSize="@dimen/textSmall"
+    android:autoSizeMinTextSize="@dimen/textTiny"
+    android:autoSizeTextType="uniform"
+    android:maxLines="1"
+    android:paddingLeft="@dimen/paddingRegular"
+    android:paddingTop="@dimen/paddingMedium"
+    android:paddingRight="@dimen/paddingRegular"
+    android:paddingBottom="@dimen/paddingMedium"
+    android:textSize="@dimen/textSmall"
+    tools:text="@string/kg" />

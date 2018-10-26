@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mainBackground"
+    android:padding="@dimen/paddingRegular"
+    tools:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        style="@style/TextStyleBold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginRegular"
+        android:textSize="@dimen/textMedium"
+        app:layout_constraintBottom_toTopOf="@id/dialogMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Dialog Title" />
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        style="@style/TextStyleRegular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginRegular"
+        android:textSize="@dimen/textRegular"
+        app:layout_constraintBottom_toTopOf="@id/dialogButtonBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle"
+        tools:text="Dialog Message" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/dialogButtonBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="dialogPositive, dialogNegative, dialogNeutral" />
+
+    <TextView
+        android:id="@+id/dialogPositive"
+        style="@style/DialogButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/foreground_light_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogMessage"
+        tools:text="Positive" />
+
+    <TextView
+        android:id="@+id/dialogNegative"
+        style="@style/DialogButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/foreground_light_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dialogPositive"
+        app:layout_constraintTop_toBottomOf="@id/dialogMessage"
+        tools:text="Negative" />
+
+    <TextView
+        android:id="@+id/dialogNeutral"
+        style="@style/DialogButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/foreground_light_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogMessage"
+        tools:text="Neutral" />
+
+</android.support.constraint.ConstraintLayout>

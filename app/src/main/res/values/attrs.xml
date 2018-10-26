@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TextImageButton">
+        <attr name="tib_text" format="string" />
+        <attr name="tib_tint" format="color" />
+        <attr name="tib_text_padding" format="dimension" />
+        <attr name="tib_text_size" format="dimension" />
+        <attr name="tib_image" format="reference" />
+        <attr name="tib_image_padding" format="dimension" />
+        <attr name="tib_image_position" format="enum">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+</resources>

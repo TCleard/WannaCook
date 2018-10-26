@@ -1,6 +1,8 @@
 package com.tcleard.wannacook.core.repo.remote.mock
 
 import android.graphics.Color
+import com.tcleard.wannacook.core.extension.matchQuery
+import com.tcleard.wannacook.core.extension.unaccent
 import com.tcleard.wannacook.core.model.Ingredient
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.core.model.Recipe.Type
@@ -109,7 +111,15 @@ class MockApi {
                 .build())
         tags.add(Tag.builder()
                 .id(tags.size)
+                .name("fromage")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
                 .name("crêpes")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("crepes")
                 .build())
         tags.add(Tag.builder()
                 .id(tags.size)
@@ -141,11 +151,31 @@ class MockApi {
                 .build())
         tags.add(Tag.builder()
                 .id(tags.size)
+                .name("healthy")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("regime")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("régime")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
                 .name("léger")
                 .build())
         tags.add(Tag.builder()
                 .id(tags.size)
+                .name("leger")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
                 .name("coloré")
+                .build())
+        tags.add(Tag.builder()
+                .id(tags.size)
+                .name("couleur")
                 .build())
         tags.add(Tag.builder()
                 .id(tags.size)
@@ -162,6 +192,8 @@ class MockApi {
 
     fun getRecipe(id: String): Recipe? = recipes.firstOrNull { it.id == id }
 
-    fun getTags(query: String): List<Tag> = tags.filter { it.name.contains(query) }
+    fun getTags(query: String): List<Tag> = tags.filter {
+        it.name.matchQuery(query)
+    }
 
 }

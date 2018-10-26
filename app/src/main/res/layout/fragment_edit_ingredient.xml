@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/editIngredientHeader"
+        style="@style/EditRecipeTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/editIngredientHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editIngredientCountQuestion"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginBig"
+        android:text="@string/editIngredientHowMany"
+        android:textColor="@color/dark"
+        app:layout_constraintEnd_toStartOf="@id/editIngredientMinus"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editIngredientHeader" />
+
+    <ImageButton
+        android:id="@+id/editIngredientPlus"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:layout_margin="@dimen/marginRegular"
+        android:background="@drawable/foreground_light_round"
+        android:padding="@dimen/paddingRegular"
+        android:scaleType="centerInside"
+        android:src="@mipmap/plus"
+        android:tint="@color/count_state_list"
+        app:layout_constraintBottom_toBottomOf="@id/editIngredientCountQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editIngredientCountQuestion" />
+
+    <TextView
+        android:id="@+id/editIngredientCount"
+        style="@style/TextStyleBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="@dimen/paddingBig"
+        android:textSize="@dimen/textBig"
+        app:layout_constraintBottom_toBottomOf="@id/editIngredientCountQuestion"
+        app:layout_constraintEnd_toStartOf="@id/editIngredientPlus"
+        app:layout_constraintTop_toTopOf="@id/editIngredientCountQuestion"
+        tools:text="2" />
+
+    <ImageButton
+        android:id="@+id/editIngredientMinus"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:background="@drawable/foreground_light_round"
+        android:padding="@dimen/paddingRegular"
+        android:scaleType="centerInside"
+        android:src="@mipmap/minus"
+        android:tint="@color/count_state_list"
+        app:layout_constraintBottom_toBottomOf="@id/editIngredientCountQuestion"
+        app:layout_constraintEnd_toStartOf="@id/editIngredientCount"
+        app:layout_constraintTop_toTopOf="@id/editIngredientCountQuestion" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/editIngredientList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/paddingMedium"
+        android:paddingBottom="@dimen/paddingMedium"
+        app:layout_constraintBottom_toTopOf="@id/editIngredientAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editIngredientCountQuestion"
+        tools:listitem="@layout/itemview_edit_ingredient" />
+
+    <com.tcleard.wannacook.ui.widget.TextImageButton
+        android:id="@+id/editIngredientAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tib_image="@mipmap/add"
+        app:tib_image_padding="@dimen/paddingMedium"
+        app:tib_text="@string/editIngredientAdd"
+        app:tib_tint="@color/colorAccent" />
+
+</android.support.constraint.ConstraintLayout>

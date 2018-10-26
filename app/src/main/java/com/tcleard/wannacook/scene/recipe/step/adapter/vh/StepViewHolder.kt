@@ -4,11 +4,11 @@ import android.view.ViewGroup
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.scene.recipe.step.adapter.vm.StepViewModel
 import com.tcleard.wannacook.ui.adapter.AViewHolder
-import kotlinx.android.synthetic.main.itemview_step.view.*
+import kotlinx.android.synthetic.main.itemview_detail_step.view.*
 
 class StepViewHolder(
         parent: ViewGroup
-) : AViewHolder<StepViewModel>(parent, R.layout.itemview_step) {
+) : AViewHolder<StepViewModel>(parent, R.layout.itemview_detail_step) {
 
     override fun bind(item: StepViewModel) {
         super.bind(item)

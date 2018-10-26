@@ -11,9 +11,6 @@ class TagAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagViewHolder {
         val holder = TagViewHolder(parent)
-        holder.onClickListener = {
-            onItemClickListener.onTagClicked(it)
-        }
         holder.onRemoveClickListener = {
             onItemClickListener.onRemoveClicked(it)
         }
@@ -26,7 +23,6 @@ class TagAdapter(
 
     interface OnItemClickListener {
 
-        fun onTagClicked(viewModel: TagViewModel)
         fun onRemoveClicked(viewModel: TagViewModel)
 
     }

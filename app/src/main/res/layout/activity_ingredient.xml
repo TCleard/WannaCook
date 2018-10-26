@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/ingredientToolbarLayout"
+        layout="@layout/include_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ingredientName"
+        style="@style/EditStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginBig"
+        android:layout_marginRight="@dimen/marginMedium"
+        android:hint="@string/ingredientName"
+        android:imeOptions="actionDone"
+        android:inputType="textCapSentences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingredientToolbarLayout" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/ingredientLabelBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="ingredientUnitLabel,ingredientQuantityLabel" />
+
+    <TextView
+        android:id="@+id/ingredientUnitLabel"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginMedium"
+        android:text="@string/ingredientUnit"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="@id/ingredientUnitSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ingredientUnitSpinner" />
+
+    <Spinner
+        android:id="@+id/ingredientUnitSpinner"
+        android:layout_width="@dimen/ingredientUnitItemWidth"
+        android:layout_height="@dimen/ingredientUnitItemHeight"
+        android:layout_margin="@dimen/marginMedium"
+        app:layout_constraintStart_toEndOf="@id/ingredientLabelBarrier"
+        app:layout_constraintTop_toBottomOf="@id/ingredientName"
+        tools:layout_editor_absoluteX="16dp"
+        tools:listitem="@layout/itemview_unit" />
+
+    <TextView
+        android:id="@+id/ingredientQuantityLabel"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginMedium"
+        android:text="@string/ingredientQuantity"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="@id/ingredientQuantity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ingredientQuantity" />
+
+    <EditText
+        android:id="@+id/ingredientQuantity"
+        style="@style/EditStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginMedium"
+        android:imeOptions="actionDone"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@id/ingredientLabelBarrier"
+        app:layout_constraintTop_toBottomOf="@id/ingredientUnitSpinner"
+        app:layout_constraintWidth_min="@dimen/ingredientQuantityWidth" />
+
+    <TextView
+        android:id="@+id/ingredientQuantityInfo"
+        style="@style/TextStyleRegular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginRegular"
+        android:layout_marginRight="@dimen/marginMedium"
+        android:textColor="@color/light"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingredientQuantity"
+        tools:text="@plurals/ingredientQuantityCount" />
+
+</android.support.constraint.ConstraintLayout>

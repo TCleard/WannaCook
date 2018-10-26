@@ -1,11 +1,13 @@
 package com.tcleard.wannacook.scene.edit
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.tcleard.wannacook.R
+import com.tcleard.wannacook.core.extension.rx.onIoToMain
+import com.tcleard.wannacook.core.extension.rx.sub
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.ui.controller.AActivity
+import com.tcleard.wannacook.ui.controller.IController
 import kotlinx.android.synthetic.main.activity_edit_recipe.*
 import javax.inject.Inject
 
@@ -15,9 +17,9 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
 
         private const val EXTRA_RECIPE = "recipe"
 
-        fun builder(context: Context): Builder = Builder(context)
+        fun builder(controller: IController): Builder = Builder(controller)
 
-        class Builder(context: Context) : AActivity.Builder(context) {
+        class Builder(controller: IController) : AActivity.Builder(controller) {
 
             override val activityClass = EditRecipeActivity::class.java
 
@@ -45,6 +47,16 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
 
         presenter.attach(this)
 
+        keyboardManager.listenKeyboardStateChanged()
+                .onIoToMain()
+                .sub(onNext = { isKeyboardOpen ->
+                    editBottom.visibility = if (isKeyboardOpen) {
+                        View.GONE
+                    } else {
+                        View.VISIBLE
+                    }
+                })
+
         editPager.adapter = adapter
         adapter.onFragmentSelected = {
             presenter.onFragmentSelected(it)
@@ -55,6 +67,10 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
 
         presenter.setRecipe(intent.getSerializableExtra(EXTRA_RECIPE) as? Recipe)
 
+    }
+
+    override fun onBackPressed() {
+        presenter.onLeftButtonClicked()
     }
 
     /** EditView **/
@@ -82,10 +98,12 @@ class EditRecipeActivity : AActivity<EditRecipePresenter>(), EditRecipePresenter
 
     override fun goToNext() {
         editPager.goToNext()
+        keyboardManager.closeKeyboard()
     }
 
     override fun goToPrevious() {
         editPager.goToPrevious()
+        keyboardManager.closeKeyboard()
     }
 
     override fun quit() {

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/editTagHeader"
+        style="@style/EditRecipeTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/editTagHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/editTagSelectedList"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/paddingLarge"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="@dimen/paddingRegular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTagHeader"
+        tools:listitem="@layout/itemview_tag" />
+
+    <EditText
+        android:id="@+id/editTagField"
+        style="@style/EditRecipeEditStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginMedium"
+        android:layout_marginRight="@dimen/marginMedium"
+        android:hint="@string/editTagSearchHint"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTagSelectedList" />
+
+    <TextView
+        android:id="@+id/editTagFieldExtra"
+        style="@style/TextStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingSmall"
+        android:text="@string/editTagSearchMinSize"
+        android:textColor="@color/red"
+        android:textSize="@dimen/textTiny"
+        android:elevation="@dimen/editElevation"
+        app:layout_constraintBottom_toBottomOf="@id/editTagField"
+        app:layout_constraintEnd_toEndOf="@id/editTagField" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/editTagSearchList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="@dimen/paddingMedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTagField"
+        app:layout_constraintVertical_bias="0"
+        tools:listitem="@layout/itemview_tag_search" />
+
+</android.support.constraint.ConstraintLayout>

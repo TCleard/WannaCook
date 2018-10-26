@@ -4,6 +4,6 @@ import java.io.Serializable
 
 abstract class AModel : Serializable {
 
-    var id: String? = null
+    open var id: String? = null
 
 }

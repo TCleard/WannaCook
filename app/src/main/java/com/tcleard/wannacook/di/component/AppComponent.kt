@@ -1,7 +1,10 @@
 package com.tcleard.wannacook.di.component
 
 import android.app.Application
+import android.content.Context
+import com.tcleard.wannacook.core.manager.IDialogManager
 import com.tcleard.wannacook.core.manager.IImageManager
+import com.tcleard.wannacook.core.manager.IKeyboardManager
 import com.tcleard.wannacook.core.manager.ITimeManager
 import com.tcleard.wannacook.core.repo.local.mock.MockDB
 import com.tcleard.wannacook.core.repo.remote.mock.MockApi
@@ -20,6 +23,11 @@ interface AppComponent {
 
     fun inject(app: Application)
 
+    // Contexts
+
+    fun application() : Application
+    fun context(): Context
+
     // Mock
 
     fun mockDB(): MockDB
@@ -27,7 +35,9 @@ interface AppComponent {
 
     // Managers
 
+    fun dialogManager(): IDialogManager
     fun imageManager(): IImageManager
+    fun keyboardManager(): IKeyboardManager
     fun timeManager(): ITimeManager
 
     // Services

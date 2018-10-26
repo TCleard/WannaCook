@@ -9,10 +9,6 @@
 
         <OnClick app:target="@id/recipeExpander" />
 
-        <OnSwipe
-            app:dragDirection="dragUp"
-            app:touchAnchorId="@id/recipeExpander" />
-
         <KeyFrameSet>
 
             <KeyPosition
@@ -31,8 +27,8 @@
 
         <Constraint
             android:id="@id/recipeBack"
-            android:layout_width="@dimen/iconMediumSize"
-            android:layout_height="@dimen/iconMediumSize"
+            android:layout_width="@dimen/iconRegularSize"
+            android:layout_height="@dimen/iconRegularSize"
             android:layout_marginStart="@dimen/marginMedium"
             android:layout_marginTop="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,8 +113,8 @@
 
         <Constraint
             android:id="@id/recipeBack"
-            android:layout_width="@dimen/iconMediumSize"
-            android:layout_height="@dimen/iconMediumSize"
+            android:layout_width="@dimen/iconRegularSize"
+            android:layout_height="@dimen/iconRegularSize"
             android:layout_marginStart="@dimen/marginMedium"
             android:layout_marginTop="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"

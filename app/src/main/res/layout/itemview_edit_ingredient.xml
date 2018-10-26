@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ingredientRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/paddingRegular">
+
+    <TextView
+        android:id="@+id/editIngredientText"
+        style="@style/TextStyleRegular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginRegular"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/textRegular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editIngredientEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ingredient Name" />
+
+    <ImageButton
+        android:id="@+id/editIngredientEdit"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:layout_margin="@dimen/marginSmall"
+        android:background="@drawable/background_white_round"
+        android:padding="@dimen/paddingRegular"
+        android:scaleType="centerInside"
+        android:src="@mipmap/edit"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editIngredientDelete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/editIngredientDelete"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:background="@drawable/background_white_round"
+        android:padding="@dimen/paddingRegular"
+        android:scaleType="centerInside"
+        android:src="@mipmap/delete"
+        android:tint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

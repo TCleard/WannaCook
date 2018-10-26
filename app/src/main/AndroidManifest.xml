@@ -22,11 +22,15 @@
         </activity>
 
         <activity
-            android:name=".scene.recipe.RecipeActivity"
+            android:name=".scene.recipe.DetailRecipeActivity"
             android:screenOrientation="portrait"/>
 
         <activity
             android:name=".scene.edit.EditRecipeActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".scene.ingredient.IngredientActivity"
             android:screenOrientation="portrait"/>
 
     </application>

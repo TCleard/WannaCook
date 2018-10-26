@@ -4,13 +4,16 @@ import com.tcleard.wannacook.R
 
 class Ingredient : AModel() {
 
+    override var id: String? = ""
+        get() = name
+
     var name: String = ""
 
     var quantity: Double = 0.0
 
     var unit: Unit = Unit.NONE
 
-    enum class Unit(val res : Int?=null) {
+    enum class Unit(val res: Int? = null) {
         KG(R.string.kg),
         G(R.string.g),
         MG(R.string.mg),
@@ -22,7 +25,7 @@ class Ingredient : AModel() {
 
     companion object {
 
-        fun builder() : Builder = Builder()
+        fun builder(): Builder = Builder()
 
         class Builder {
 

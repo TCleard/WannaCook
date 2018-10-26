@@ -6,6 +6,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/light</item>
         <item name="android:colorBackground">@color/mainBackground</item>
+        <item name="android:textAppearance">@style/DefaultTextStyle</item>
+        <item name="android:textAppearanceButton">@style/ButtonStyle</item>
         <item name="android:windowContentTransitions">true</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
     </style>

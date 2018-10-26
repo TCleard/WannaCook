@@ -11,15 +11,9 @@ class TagViewHolder(
         parent: ViewGroup
 ) : AViewHolder<TagViewModel>(parent, R.layout.itemview_tag) {
 
-    var onClickListener: ((TagViewModel) -> Unit)? = null
     var onRemoveClickListener: ((TagViewModel) -> Unit)? = null
 
     init {
-        itemView.tagBackground.setOnClickListener {
-            item?.let { viewModel ->
-                onClickListener?.invoke(viewModel)
-            }
-        }
         itemView.tagRemove.setOnClickListener {
             item?.let { viewModel ->
                 onRemoveClickListener?.invoke(viewModel)
@@ -29,15 +23,14 @@ class TagViewHolder(
 
     override fun bind(item: TagViewModel) {
         super.bind(item)
-        itemView.tagName.text = item.getName()
+        itemView.searchTagName.text = item.getName()
 
         if (item.isDeletable()) {
             itemView.tagRemove.visibility = View.VISIBLE
-            itemView.tagBackground.isClickable = false
         } else {
             itemView.tagRemove.visibility = View.GONE
-            itemView.tagBackground.isClickable = true
         }
+
     }
 
 }

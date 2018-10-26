@@ -76,9 +76,11 @@ abstract class AItemAdapter<I, VH : AViewHolder<*>> : RecyclerView.Adapter<VH>()
         }
     }
 
-    open fun removeAll() {
+    open fun removeAll(isLoading: Boolean = false) {
+        val previousCount = itemCount
+        this.isLoading = isLoading
         items.clear()
-        notifyDataSetChanged()
+        notifyItemRangeRemoved(0, previousCount)
     }
 
     fun generateLayoutManager(context: Context): RecyclerView.LayoutManager {

@@ -64,8 +64,8 @@
 
         <ImageView
             android:id="@+id/recipePreparationIcon"
-            android:layout_width="@dimen/iconRegularSize"
-            android:layout_height="@dimen/iconRegularSize"
+            android:layout_width="@dimen/iconSmallSize"
+            android:layout_height="@dimen/iconSmallSize"
             android:layout_marginLeft="@dimen/marginRegular"
             android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginRegular"
@@ -91,8 +91,8 @@
 
         <ImageView
             android:id="@+id/recipeCookingIcon"
-            android:layout_width="@dimen/iconRegularSize"
-            android:layout_height="@dimen/iconRegularSize"
+            android:layout_width="@dimen/iconSmallSize"
+            android:layout_height="@dimen/iconSmallSize"
             android:layout_marginLeft="@dimen/marginRegular"
             android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginRegular"
