@@ -42,7 +42,8 @@ class EditIngredientFragment : AEditRecipeFragment<EditIngredientPresenter>(), E
         presenter.attach(this)
 
         editIngredientList.addItemDecoration(ColorSeparator.builder(requireContext())
-                .setPaddingRes(R.dimen.paddingMedium)
+                .setBackgroundColorRes(R.color.white)
+                .setStartPaddingRes(R.dimen.paddingMedium)
                 .build())
         editIngredientList.layoutManager = LinearLayoutManager(requireContext())
         editIngredientList.adapter = adapter

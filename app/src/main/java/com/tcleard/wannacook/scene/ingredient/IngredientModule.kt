@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import com.tcleard.wannacook.di.SceneScope
-import com.tcleard.wannacook.scene.ingredient.adapter.IngredientUnitAdapter
 
 @Module
 class IngredientModule {

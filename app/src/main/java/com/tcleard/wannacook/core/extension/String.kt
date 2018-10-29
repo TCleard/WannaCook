@@ -11,3 +11,6 @@ fun String.unaccent(): String {
 
 fun String.matchQuery(query: String): Boolean =
         toLowerCase().unaccent().contains(query.toLowerCase().unaccent())
+
+fun String.equalsQuery(query: String): Boolean =
+        toLowerCase().unaccent() == query.toLowerCase().unaccent()

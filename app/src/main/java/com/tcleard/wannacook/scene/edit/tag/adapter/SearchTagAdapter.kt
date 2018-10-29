@@ -36,8 +36,15 @@ class SearchTagAdapter(
         }
     }
 
-    override fun getItemViewType(position: Int): Int =
+    override fun getItemCount(): Int =
             if (isLoading) {
+                items.size + 2
+            } else {
+                items.size
+            }
+
+    override fun getItemViewType(position: Int): Int =
+            if (isLoading && position > items.size - 1) {
                 TYPE_LOADING
             } else {
                 TYPE_TAG

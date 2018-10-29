@@ -76,10 +76,6 @@ class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresente
         searchTagAdapter.setItems(viewModels)
     }
 
-    override fun addSearchTags(viewModels: List<SearchTagViewModel>) {
-        searchTagAdapter.add(viewModels)
-    }
-
     override fun removeSearchTags(viewModels: List<SearchTagViewModel>) {
         searchTagAdapter.remove { it.getId() in viewModels.map { it.getId() } }
     }

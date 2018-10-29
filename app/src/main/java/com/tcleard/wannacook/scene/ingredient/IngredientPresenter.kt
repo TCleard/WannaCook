@@ -5,7 +5,6 @@ import com.tcleard.wannacook.core.extension.isWhole
 import com.tcleard.wannacook.core.model.Ingredient
 import com.tcleard.wannacook.core.presenter.APresenter
 import com.tcleard.wannacook.core.presenter.IView
-import com.tcleard.wannacook.scene.ingredient.adapter.IngredientUnitItem
 import javax.inject.Inject
 
 class IngredientPresenter @Inject constructor(
@@ -30,7 +29,7 @@ class IngredientPresenter @Inject constructor(
         }
         view?.showCount(count)
         view?.showName(name)
-        view?.showUnit(IngredientUnitItem(unit))
+        view?.showUnit(unit)
         view?.showQuantity(if (quantity > 0) {
             if (quantity.isWhole()) {
                 quantity.toInt().toString()
@@ -51,8 +50,8 @@ class IngredientPresenter @Inject constructor(
         this.name = name
     }
 
-    fun onUnitSelected(item: IngredientUnitItem) {
-        this.unit = item.unit
+    fun onUnitSelected(unit: Ingredient.Unit) {
+        this.unit = unit
     }
 
     fun onQuantityChanged(quantity: Double) {
@@ -71,7 +70,7 @@ class IngredientPresenter @Inject constructor(
         fun showTitle(titleRes: Int)
 
         fun showName(name: String)
-        fun showUnit(unitItem: IngredientUnitItem)
+        fun showUnit(unit: Ingredient.Unit)
         fun showQuantity(quantity: String)
         fun showCount(count: Int)
 

@@ -70,6 +70,7 @@ class EditIngredientPresenter @Inject constructor(
     fun onDeleteClicked(viewModel: EditIngredientViewModel) {
         ingredients.remove(viewModel.model)
         view?.removeIngredient(viewModel)
+        checkValidity()
     }
 
     fun updateIngredient(ingredient: Ingredient) {
@@ -80,6 +81,7 @@ class EditIngredientPresenter @Inject constructor(
         }
         ingredients.add(ingredient)
         view?.addIngredient(EditIngredientViewModel(ingredient))
+        checkValidity()
     }
 
     interface RecipeIngredientView : IView {

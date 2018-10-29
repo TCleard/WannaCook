@@ -11,8 +11,6 @@ import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.extension.setHomeIcon
 import com.tcleard.wannacook.core.extension.watch
 import com.tcleard.wannacook.core.model.Ingredient
-import com.tcleard.wannacook.scene.ingredient.adapter.IngredientUnitAdapter
-import com.tcleard.wannacook.scene.ingredient.adapter.IngredientUnitItem
 import com.tcleard.wannacook.ui.controller.AActivity
 import com.tcleard.wannacook.ui.controller.IController
 import kotlinx.android.synthetic.main.activity_ingredient.*
@@ -111,8 +109,8 @@ class IngredientActivity : AActivity<IngredientPresenter>(), IngredientPresenter
         ingredientName.setText(name)
     }
 
-    override fun showUnit(unitItem: IngredientUnitItem) {
-        ingredientUnitSpinner.setSelection(adapter.getPosition(unitItem))
+    override fun showUnit(unit: Ingredient.Unit) {
+        ingredientUnitSpinner.setSelection(adapter.getPosition(unit))
     }
 
     override fun showQuantity(quantity: String) {

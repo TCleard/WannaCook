@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/mainBackground"
-    android:padding="@dimen/paddingRegular"
+    android:paddingLeft="@dimen/paddingRegular"
+    android:paddingTop="@dimen/paddingMedium"
+    android:paddingRight="@dimen/paddingRegular"
+    android:paddingBottom="@dimen/paddingRegular"
     tools:layout_gravity="center">
 
     <TextView

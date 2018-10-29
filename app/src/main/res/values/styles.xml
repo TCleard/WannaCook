@@ -11,9 +11,9 @@
     </style>
 
     <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
-        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/bold</item>
         <item name="android:actionMenuTextAppearance">@style/ToolbarItemStyle</item>
-        <item name="actionMenuTextColor">@color/dark</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
     </style>
 
     <style name="ToolbarTitleStyle" parent="Base.TextAppearance.AppCompat.Title">
@@ -27,9 +27,9 @@
     </style>
 
     <style name="ToolbarItemStyle">
-        <item name="fontFamily">@font/bold</item>
-        <item name="android:textSize">@dimen/textRegular</item>
-        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/bold</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="DefaultTextStyle" parent="TextAppearance.AppCompat">
@@ -39,15 +39,15 @@
     </style>
 
     <style name="TextStyleBold" parent="@style/DefaultTextStyle">
-        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/bold</item>
     </style>
 
     <style name="TextStyleRegular" parent="@style/DefaultTextStyle">
-        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/regular</item>
     </style>
 
     <style name="EditStyle" parent="@style/DefaultTextStyle">
-        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/bold</item>
         <item name="android:textColor">@color/dark</item>
         <item name="android:textColorHint">@color/lightAlpha</item>
         <item name="android:elevation" tools:ignore="NewApi">@dimen/editElevation</item>
@@ -59,7 +59,7 @@
     </style>
 
     <style name="ButtonStyle" parent="DefaultTextStyle">
-        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/textSmall</item>
         <item name="android:elevation" tools:ignore="NewApi">@dimen/buttonElevation</item>
@@ -82,7 +82,7 @@
         <item name="android:paddingRight">@dimen/paddingRegular</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">@dimen/textTiny</item>
+        <item name="android:textSize">@dimen/textSmall</item>
     </style>
 
     <!-- EditRecipeStyles -->

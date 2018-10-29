@@ -1,4 +1,4 @@
-package com.tcleard.wannacook.scene.ingredient.adapter
+package com.tcleard.wannacook.scene.ingredient
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.itemview_unit.view.*
 
 class IngredientUnitAdapter(
         context: Context
-) : ArrayAdapter<IngredientUnitItem>(context, R.layout.itemview_unit, R.id.unitName, Ingredient.Unit.values().map { IngredientUnitItem(it) }) {
+) : ArrayAdapter<Ingredient.Unit>(context, R.layout.itemview_unit, R.id.unitName, Ingredient.Unit.values()) {
 
     private val layoutInflater = LayoutInflater.from(context)
 
@@ -24,7 +24,7 @@ class IngredientUnitAdapter(
     private fun getView(convertView: View?, parent: ViewGroup, position: Int): View {
         val item = getItem(position)
         val view = convertView ?: layoutInflater.inflate(R.layout.itemview_unit, parent, false)
-        view.unitName.setText(item.getNameRes())
+        view.unitName.setText(item.res ?: R.string.unitNone)
         return view
     }
 

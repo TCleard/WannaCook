@@ -1,8 +1,10 @@
 package com.tcleard.wannacook.scene.edit.tag
 
+import com.tcleard.wannacook.core.extension.equalsQuery
 import com.tcleard.wannacook.core.extension.matchQuery
 import com.tcleard.wannacook.core.extension.rx.onIoToMain
 import com.tcleard.wannacook.core.extension.rx.sub
+import com.tcleard.wannacook.core.extension.unaccent
 import com.tcleard.wannacook.core.model.Tag
 import com.tcleard.wannacook.core.presenter.IView
 import com.tcleard.wannacook.core.service.ATagService
@@ -27,22 +29,20 @@ class EditTagPresenter @Inject constructor(
         if (query.length >= 3) {
             view?.showQueryError(false)
             removeNonMatchingTags()
-            if (searchedTags.isEmpty()) {
-                view?.showSearchLoading()
-            }
+            view?.showSearchLoading()
             tagQuery = tagService.getRemoteTags(query)
                     .onIoToMain()
                     .sub(onSuccess = {
                         removeNonMatchingTags()
-                        if (searchedTags.isEmpty()) {
-                            searchedTags.addAll(it.items)
-                            view?.showSearchTags(searchedTags.map { SearchTagViewModel(it) })
-                        } else {
-                            view?.addSearchTags(it.items.filter { !searchedTags.contains(it) }
-                                    .map { SearchTagViewModel(it) })
-                            searchedTags.clear()
-                            searchedTags.addAll(it.items)
+                        val matchingTags = it.items.filter { it.name.matchQuery(this.query) }.toMutableList()
+                        if (matchingTags.none { it.name.equalsQuery(this.query)  }) {
+                            matchingTags.add(0, Tag.builder()
+                                    .name(this.query.toLowerCase().unaccent())
+                                    .build())
                         }
+                        searchedTags.clear()
+                        searchedTags.addAll(matchingTags)
+                        view?.showSearchTags(searchedTags.map { SearchTagViewModel(it) })
                     })
         } else {
             tagQuery?.dispose()
@@ -94,7 +94,6 @@ class EditTagPresenter @Inject constructor(
         fun removeSelectedTag(viewModel: TagViewModel)
 
         fun showSearchTags(viewModels: List<SearchTagViewModel>)
-        fun addSearchTags(viewModels: List<SearchTagViewModel>)
         fun removeSearchTags(viewModels: List<SearchTagViewModel>)
         fun removeSearchTags()
         fun showSearchLoading()

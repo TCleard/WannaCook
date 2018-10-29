@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.PorterDuff
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
@@ -13,10 +14,7 @@ import com.tcleard.wannacook.R
 
 class ColorSeparator private constructor(
         context: Context,
-        color: Int,
-        private val orientation: Orientation,
-        private val start: Int,
-        private val end: Int
+        private val builder: Builder
 ) : RecyclerView.ItemDecoration() {
 
     companion object {
@@ -27,16 +25,25 @@ class ColorSeparator private constructor(
 
     class Builder internal constructor(private val context: Context) {
 
-        private var orientation: Orientation = Orientation.HORIZONTAL
-        private var color: Int = context.resources.getColor(R.color.light)
-        private var start: Int = 0
-        private var end: Int = 0
+        var orientation: Orientation = Orientation.HORIZONTAL
+        var color: Int = context.resources.getColor(R.color.light)
+        var backgroundColor: Int? = null
+        var start: Int = 0
+        var end: Int = 0
 
         fun setColorRes(@ColorRes colorRes: Int): Builder =
                 setColor(context.resources.getColor(colorRes))
 
         fun setColor(color: Int): Builder {
             this.color = color
+            return this
+        }
+
+        fun setBackgroundColorRes(@ColorRes backgroundColorRes: Int?): Builder =
+                setBackgroundColor(backgroundColorRes?.let { context.resources.getColor(it) })
+
+        fun setBackgroundColor(backgroundColor: Int?): Builder {
+            this.backgroundColor = backgroundColor
             return this
         }
 
@@ -70,23 +77,27 @@ class ColorSeparator private constructor(
             return this
         }
 
-        fun build(): ColorSeparator = ColorSeparator(context, color, orientation, start, end)
+        fun build(): ColorSeparator = ColorSeparator(context, this)
 
     }
 
     private val divider: Drawable
+    private val background: Drawable?
 
     init {
-        divider = context.resources.getDrawable(when (orientation) {
+        divider = context.resources.getDrawable(when (builder.orientation) {
             Orientation.HORIZONTAL -> R.drawable.divider_horizontal
             Orientation.VERTICAL -> R.drawable.divider_vertical
         }).mutate()
-        divider.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
+        divider.setColorFilter(builder.color, PorterDuff.Mode.MULTIPLY)
+        background = builder.backgroundColor?.let {
+            ColorDrawable(it)
+        }
     }
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
-        when (orientation) {
+        when (builder.orientation) {
             Orientation.HORIZONTAL -> outRect.top = divider.intrinsicHeight
             Orientation.VERTICAL -> outRect.left = divider.intrinsicWidth
         }
@@ -95,19 +106,27 @@ class ColorSeparator private constructor(
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
 
+        var backgroundLeft: Int = 0
+        var backgroundRight: Int = 0
+        var backgroundTop: Int = 0
+        var backgroundBottom: Int = 0
         var left: Int = 0
         var right: Int = 0
         var top: Int = 0
         var bottom: Int = 0
 
-        when (orientation) {
+        when (builder.orientation) {
             Orientation.HORIZONTAL -> {
-                left = parent.paddingLeft + start
-                right = parent.width - left - end
+                backgroundLeft = parent.paddingLeft
+                backgroundRight = parent.width - parent.paddingRight
+                left = backgroundLeft + builder.start
+                right = backgroundRight - builder.end
             }
             Orientation.VERTICAL -> {
-                top = parent.paddingTop + start
-                bottom = parent.height - top - end
+                backgroundTop = parent.paddingTop
+                backgroundBottom = parent.height - parent.paddingBottom
+                top = backgroundTop + builder.start
+                bottom = backgroundBottom - top - builder.end
             }
         }
 
@@ -119,22 +138,32 @@ class ColorSeparator private constructor(
 
             val layoutParams = child.layoutParams as? RecyclerView.LayoutParams
 
-            when (orientation) {
+            when (builder.orientation) {
                 Orientation.HORIZONTAL -> {
                     top = child.bottom + (layoutParams?.bottomMargin ?: 0)
                     bottom = top + divider.intrinsicHeight
+                    backgroundTop = top
+                    backgroundBottom = bottom
                 }
                 Orientation.VERTICAL -> {
                     left = child.right + (layoutParams?.rightMargin ?: 0)
                     right = left + divider.intrinsicWidth
+                    backgroundLeft = left
+                    backgroundRight = right
                 }
+            }
+
+            background?.let {
+                it.setBounds(backgroundLeft, backgroundTop, backgroundRight, backgroundBottom)
+                it.draw(c)
             }
 
             divider.setBounds(left, top, right, bottom)
 
-            c.let { divider.draw(it) }
+            divider.draw(c)
 
         }
+
     }
 
     enum class Orientation {
