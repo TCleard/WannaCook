@@ -16,7 +16,7 @@ class DetailRecipePresenter @Inject constructor(
     fun setRecipe(recipe: Recipe) {
 
         view?.showImage(recipe.imageUrl)
-        view?.showRecipeColor(recipe.type.color)
+        view?.showRecipeColor(recipe.color)
         view?.showName(recipe.name)
 
         view?.showPreparationTime(recipe.preparationTime?.let { timeManager.getDuration(it) })

@@ -11,13 +11,15 @@
         android:id="@+id/tibImageLeft"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="@dimen/paddingMedium"
         android:scaleType="centerInside"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/add" />
+        tools:src="@mipmap/add"
+        tools:tint="@color/dark" />
 
     <TextView
         android:id="@+id/tibText"
@@ -29,14 +31,15 @@
         app:layout_constraintEnd_toStartOf="@id/tibImageRight"
         app:layout_constraintStart_toEndOf="@id/tibImageLeft"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Button Text" />
+        tools:text="@string/toolsSmall" />
 
     <ImageView
         android:id="@+id/tibImageRight"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="@dimen/paddingMedium"
         android:scaleType="centerInside"
-        android:tint="@color/white"
+        android:tint="@color/dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"

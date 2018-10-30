@@ -3,8 +3,12 @@
 
     <color name="colorPrimary">@color/white</color>
     <color name="colorPrimaryDark">@color/light</color>
+    <color name="colorAccent">#FA8072</color>
+    <color name="colorAccentLight">#FFC9C3</color>
+    <!--
     <color name="colorAccent">#00C853</color>
     <color name="colorAccentLight">#81E4A9</color>
+    -->
 
     <color name="transparent">#00000000</color>
     <color name="statusBarColor">#1F505060</color>

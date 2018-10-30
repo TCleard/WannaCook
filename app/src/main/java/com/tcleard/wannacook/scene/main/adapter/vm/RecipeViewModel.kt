@@ -1,10 +1,10 @@
 package com.tcleard.wannacook.scene.main.adapter.vm
 
 import android.widget.ImageView
-import android.widget.TextView
 import com.tcleard.wannacook.core.manager.ITimeManager
 import com.tcleard.wannacook.core.model.Recipe
 import com.tcleard.wannacook.ui.adapter.AViewModel
+import com.tcleard.wannacook.ui.adapter.tag.vm.TagViewModel
 
 class RecipeViewModel(
         recipe: Recipe,
@@ -14,16 +14,19 @@ class RecipeViewModel(
 
     fun getImageUrl(): String = model.imageUrl
 
-    fun getType(): String = model.type.name
-    fun getTypeColor(): Int? = model.type.color
+    fun getColor(): Int? = model.color
 
     fun getName(): String = model.name
+
+    fun getDescription(): String = model.description
 
     fun getPreparationTime(): String? = model.preparationTime?.let { timeManager.getDuration(it) }
 
     fun getCookingTime(): String? = model.cookingTime?.let { timeManager.getDuration(it) }
 
-    fun isFavorite() : Boolean = getName().contains("a")
+    fun getTags(): List<TagViewModel> = model.tags.map { TagViewModel(it) }
+
+    fun isFavorite(): Boolean = getName().contains("a")
 
     fun onClick(imageView: ImageView) {
         block.invoke(model, imageView)

@@ -1,4 +1,4 @@
-package com.tcleard.wannacook.scene.edit.tag.adapter.vh
+package com.tcleard.wannacook.scene.edit.tag.searchAdapter.vh
 
 import android.view.ViewGroup
 import com.tcleard.wannacook.R

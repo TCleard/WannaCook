@@ -1,16 +1,17 @@
 package com.tcleard.wannacook.scene.edit.title
 
+import com.tcleard.wannacook.core.manager.IKeyboardManager
+import com.tcleard.wannacook.di.SceneScope
 import dagger.Module
 import dagger.Provides
-import com.tcleard.wannacook.di.SceneScope
 
 @Module
 class EditTitleModule {
 
     @Provides
     @SceneScope
-    fun providePresenter(): EditTitlePresenter {
-        return EditTitlePresenter()
+    fun providePresenter(keyboardManager: IKeyboardManager): EditTitlePresenter {
+        return EditTitlePresenter(keyboardManager)
     }
 
 }

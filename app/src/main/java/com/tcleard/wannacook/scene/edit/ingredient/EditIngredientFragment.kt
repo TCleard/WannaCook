@@ -39,8 +39,6 @@ class EditIngredientFragment : AEditRecipeFragment<EditIngredientPresenter>(), E
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.attach(this)
-
         editIngredientList.addItemDecoration(ColorSeparator.builder(requireContext())
                 .setBackgroundColorRes(R.color.white)
                 .setStartPaddingRes(R.dimen.paddingMedium)
@@ -54,6 +52,10 @@ class EditIngredientFragment : AEditRecipeFragment<EditIngredientPresenter>(), E
         editIngredientPlus.setOnLongClickListener(this)
         editIngredientMinus.setOnLongClickListener(this)
 
+    }
+
+    override fun attachPresenter() {
+        presenter.attach(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

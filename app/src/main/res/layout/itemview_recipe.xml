@@ -11,7 +11,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/recipeItemHeight"
         android:background="@drawable/background_white">
 
         <ImageView
@@ -24,56 +24,92 @@
             app:layout_constraintDimensionRatio="W,1:2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/colorPrimary" />
+            tools:background="@color/colorPrimary"
+            tools:src="@color/red" />
 
-        <TextView
-            android:id="@+id/recipeType"
-            style="@style/TextStyleRegular"
+        <ImageView
+            android:id="@+id/recipeBackground"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginRegular"
-            android:layout_marginTop="@dimen/marginMedium"
-            android:layout_marginEnd="@dimen/marginRegular"
-            android:textSize="@dimen/textSmall"
-            app:layout_constraintBottom_toTopOf="@id/recipeName"
-            app:layout_constraintEnd_toStartOf="@id/recipeFavorite"
-            app:layout_constraintStart_toEndOf="@id/recipeImage"
+            android:layout_height="0dp"
+            android:src="@drawable/background_recipe_fade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.50"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Recipe Type"
-            tools:textColor="@color/colorPrimary" />
+            app:layout_constraintVertical_bias="0"
+            tools:tint="@color/red" />
+
+        <ImageButton
+            android:id="@+id/recipeFavorite"
+            android:layout_width="@dimen/iconBigSize"
+            android:layout_height="@dimen/iconBigSize"
+            android:background="@drawable/foreground_light_round"
+            android:padding="@dimen/paddingMedium"
+            android:scaleType="centerInside"
+            android:tint="@color/favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@mipmap/favorite_on" />
 
         <TextView
             android:id="@+id/recipeName"
             style="@style/TextStyleBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginRegular"
-            android:layout_marginTop="@dimen/marginMedium"
-            android:layout_marginEnd="@dimen/marginRegular"
+            android:layout_marginTop="@dimen/marginRegular"
             android:autoSizeMaxTextSize="@dimen/textBig"
             android:autoSizeMinTextSize="@dimen/textRegular"
             android:autoSizeTextType="uniform"
             android:ellipsize="marquee"
             android:gravity="center|start"
-            android:lines="2"
+            android:lineSpacingExtra="@dimen/paddingSmall"
+            android:maxLines="2"
+            android:padding="@dimen/paddingRegular"
             android:textSize="@dimen/textBig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/recipeImage"
-            app:layout_constraintTop_toBottomOf="@id/recipeType"
-            tools:text="Recipe Name" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/toolsSmall" />
+
+        <TextView
+            android:id="@+id/recipeDescription"
+            style="@style/TextStyleRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="@dimen/textRegular"
+            android:autoSizeMinTextSize="@dimen/textSmall"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="marquee"
+            android:gravity="center|start"
+            android:lineSpacingExtra="@dimen/paddingSmall"
+            android:padding="@dimen/paddingRegular"
+            android:textSize="@dimen/textRegular"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@id/recipeIconBarrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/recipeImage"
+            app:layout_constraintTop_toBottomOf="@id/recipeName"
+            tools:text="@string/toolsMedium" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/recipeIconBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="recipePreparationIcon, recipeCookingIcon" />
 
         <ImageView
             android:id="@+id/recipePreparationIcon"
             android:layout_width="@dimen/iconSmallSize"
             android:layout_height="@dimen/iconSmallSize"
             android:layout_marginLeft="@dimen/marginRegular"
-            android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginRegular"
             android:src="@mipmap/timer"
             android:tint="@color/light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/recipeImage"
-            app:layout_constraintTop_toBottomOf="@id/recipeName" />
+            app:layout_constraintStart_toEndOf="@id/recipeImage" />
 
         <TextView
             android:id="@+id/recipePreparation"
@@ -87,20 +123,18 @@
             app:layout_constraintBottom_toBottomOf="@id/recipePreparationIcon"
             app:layout_constraintStart_toEndOf="@id/recipePreparationIcon"
             app:layout_constraintTop_toTopOf="@id/recipePreparationIcon"
-            tools:text="25 min." />
+            tools:text="@string/toolsTiny" />
 
         <ImageView
             android:id="@+id/recipeCookingIcon"
             android:layout_width="@dimen/iconSmallSize"
             android:layout_height="@dimen/iconSmallSize"
             android:layout_marginLeft="@dimen/marginRegular"
-            android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginRegular"
             android:src="@mipmap/oven"
             android:tint="@color/light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/recipePreparation"
-            app:layout_constraintTop_toBottomOf="@id/recipeName" />
+            app:layout_constraintStart_toEndOf="@id/recipePreparation" />
 
         <TextView
             android:id="@+id/recipeCooking"
@@ -114,19 +148,7 @@
             app:layout_constraintBottom_toBottomOf="@id/recipeCookingIcon"
             app:layout_constraintStart_toEndOf="@id/recipeCookingIcon"
             app:layout_constraintTop_toTopOf="@id/recipeCookingIcon"
-            tools:text="40 min." />
-
-        <ImageButton
-            android:id="@+id/recipeFavorite"
-            android:layout_width="@dimen/iconBigSize"
-            android:layout_height="@dimen/iconBigSize"
-            android:background="@drawable/background_white_round"
-            android:padding="@dimen/paddingMedium"
-            android:scaleType="centerInside"
-            android:tint="@color/favorite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/favorite_on" />
+            tools:text="@string/toolsTiny" />
 
     </android.support.constraint.ConstraintLayout>
 

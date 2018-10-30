@@ -1,19 +1,18 @@
 package com.tcleard.wannacook.core.manager.impl.dialog
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.manager.IDialogManager
 import kotlinx.android.synthetic.main.widget_dialog.*
 
 class CustomDialogManager : IDialogManager {
 
-    override fun builder(activity: AppCompatActivity): IDialogManager.Builder = Builder(activity)
+    override fun builder(activity: Activity): IDialogManager.Builder = Builder(activity)
 
     class Builder(context: Context) : IDialogManager.Builder(context) {
 
@@ -42,6 +41,10 @@ class CustomDialogManager : IDialogManager {
                 dialogMessage.text = builder.message
             } else {
                 dialogMessage.visibility = View.GONE
+            }
+
+            builder.view?.let {
+                dialogViewContainer.addView(it)
             }
 
             if (builder.positiveButton?.isNotBlank() == true) {

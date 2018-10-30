@@ -1,8 +1,8 @@
-package com.tcleard.wannacook.scene.edit.tag.adapter.vh
+package com.tcleard.wannacook.scene.edit.tag.searchAdapter.vh
 
 import android.view.ViewGroup
 import com.tcleard.wannacook.R
-import com.tcleard.wannacook.scene.edit.tag.adapter.vm.SearchTagViewModel
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vm.SearchTagViewModel
 import kotlinx.android.synthetic.main.itemview_tag_search.view.*
 
 class SearchTagViewHolder(

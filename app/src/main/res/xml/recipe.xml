@@ -9,18 +9,6 @@
 
         <OnClick app:target="@id/recipeExpander" />
 
-        <KeyFrameSet>
-
-            <KeyPosition
-                app:framePosition="30"
-                app:keyPositionType="deltaRelative"
-                app:pathMotionArc="startHorizontal"
-                app:percentX="0.8"
-                app:percentY="0.3"
-                app:target="@id/recipeExpander" />
-
-        </KeyFrameSet>
-
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -38,10 +26,10 @@
             android:id="@id/recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginBig"
-            android:layout_marginTop="@dimen/marginBig"
-            android:layout_marginEnd="@dimen/marginBig"
+            android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginMedium"
+            android:layout_marginStart="@dimen/marginBig"
+            android:layout_marginLeft="@dimen/marginBig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipeBack" />
@@ -63,6 +51,7 @@
             android:layout_marginTop="@dimen/marginMedium"
             android:layout_marginBottom="@dimen/marginBig"
             app:layout_constraintBottom_toTopOf="@id/recipeExpander"
+            app:layout_constraintDimensionRatio="H,1:2"
             app:layout_constraintEnd_toEndOf="@id/recipeGLImageEnd"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipeName" />
@@ -81,9 +70,6 @@
             android:id="@id/recipeExpander"
             android:layout_width="@dimen/fabSize"
             android:layout_height="@dimen/fabSize"
-            android:layout_marginStart="@dimen/marginBig"
-            android:layout_marginTop="@dimen/marginBig"
-            android:layout_marginEnd="@dimen/marginBig"
             android:layout_marginBottom="@dimen/marginBig"
             android:scaleX="1"
             android:scaleY="1"
@@ -164,16 +150,15 @@
             android:id="@id/recipeExpander"
             android:layout_width="@dimen/fabSize"
             android:layout_height="@dimen/fabSize"
-            android:layout_marginStart="@dimen/marginMedium"
-            android:layout_marginTop="@dimen/marginMedium"
-            android:layout_marginEnd="@dimen/marginMedium"
-            android:layout_marginBottom="@dimen/marginMedium"
+            android:layout_marginStart="@dimen/marginRegular"
+            android:layout_marginTop="@dimen/marginRegular"
+            android:layout_marginEnd="@dimen/marginRegular"
+            android:layout_marginBottom="@dimen/marginRegular"
             android:rotation="-180"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            app:layout_constraintBottom_toBottomOf="@id/recipeImageContainer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recipeImageContainer" />
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Constraint
             android:id="@id/recipePager"

@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toStartOf="@id/editIngredientEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ingredient Name" />
+        tools:text="@string/toolsRegular" />
 
     <ImageButton
         android:id="@+id/editIngredientEdit"

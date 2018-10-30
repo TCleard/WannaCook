@@ -1,12 +1,14 @@
 package com.tcleard.wannacook.core.manager
 
+import android.app.Activity
 import android.content.Context
 import android.support.annotation.StringRes
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 
 interface IDialogManager {
 
-    fun builder(activity: AppCompatActivity): Builder
+    fun builder(activity: Activity): Builder
 
     interface Dialog {
 
@@ -23,6 +25,8 @@ interface IDialogManager {
 
         var title: String? = null
         var message: String? = null
+
+        var view: View? = null
 
         var positiveButton: String? = null
         var neutralButton: String? = null
@@ -56,6 +60,11 @@ interface IDialogManager {
 
         fun setMessage(@StringRes messageRes: Int): Builder =
                 setMessage(getString(messageRes))
+
+        fun setView(view: View?): Builder {
+            this.view = view
+            return this
+        }
 
         open fun setPositiveButton(positiveButton: String?, onPositiveClickListener: (Dialog) -> Unit): Builder {
             this.positiveButton = positiveButton

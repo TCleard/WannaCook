@@ -1,12 +1,12 @@
-package com.tcleard.wannacook.ui.adapter.tag.vm
+package com.tcleard.wannacook.scene.edit.tag.searchAdapter.vm
 
 import com.tcleard.wannacook.core.model.Tag
 import com.tcleard.wannacook.ui.adapter.AViewModel
 
-class TagViewModel(
+class SearchTagViewModel(
         tag: Tag
 ) : AViewModel<Tag>(tag) {
 
-    fun getName() : String = model.name
+    fun getName(): String = model.name
 
 }

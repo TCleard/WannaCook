@@ -2,6 +2,13 @@
 
     <string name="app_name">WannaCook</string>
 
+    <!-- Tools -->
+    <string name="toolsTiny">Lorem</string>
+    <string name="toolsSmall">Lorem ipsum</string>
+    <string name="toolsRegular">Lorem ipsum dolor sit amet</string>
+    <string name="toolsMedium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="toolsBig">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+
     <!-- Commons -->
     <string name="close">Fermer</string>
     <string name="quit">Quitter</string>
@@ -50,6 +57,7 @@
 
     <string name="editTitleHeader">Donnez un titre à votre recette.</string>
     <string name="editTitleMinSize">5 char. min</string>
+    <string name="editTitleColorHeader">Choisissez une couleur : </string>
 
     <string name="editTagHeader">Ajoutez-lui des tags.\n(Au moins un)</string>
     <string name="editTagAdd">Ajouter</string>

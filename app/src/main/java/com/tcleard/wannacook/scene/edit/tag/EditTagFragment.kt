@@ -9,17 +9,17 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.extension.watch
 import com.tcleard.wannacook.scene.edit.AEditRecipeFragment
-import com.tcleard.wannacook.scene.edit.tag.adapter.SearchTagAdapter
-import com.tcleard.wannacook.scene.edit.tag.adapter.vm.SearchTagViewModel
-import com.tcleard.wannacook.ui.adapter.tag.TagAdapter
-import com.tcleard.wannacook.ui.adapter.tag.vm.TagViewModel
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.SearchTagAdapter
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vm.SearchTagViewModel
+import com.tcleard.wannacook.scene.edit.tag.adapter.EditTagAdapter
+import com.tcleard.wannacook.scene.edit.tag.adapter.vm.EditTagViewModel
 import kotlinx.android.synthetic.main.fragment_edit_tag.*
 import javax.inject.Inject
 
-class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresenter.RecipeTagView, TagAdapter.OnItemClickListener, SearchTagAdapter.OnTagClickListener {
+class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresenter.RecipeTagView, EditTagAdapter.OnItemClickListener, SearchTagAdapter.OnTagClickListener {
 
     @Inject
-    lateinit var selectedTagAdapter: TagAdapter
+    lateinit var selectedTagAdapter: EditTagAdapter
 
     @Inject
     lateinit var searchTagAdapter: SearchTagAdapter
@@ -39,8 +39,6 @@ class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresente
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.attach(this)
-
         editTagField.watch(afterTextChanged = {
             presenter.searchTags(editTagField.text.toString())
         })
@@ -53,22 +51,26 @@ class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresente
 
     }
 
+    override fun attachPresenter() {
+        presenter.attach(this)
+    }
+
     /** RecipeTagView **/
 
     override fun setState(state: Boolean) {
         statePublisher.onNext(state)
     }
 
-    override fun showSelectedTags(viewModels: List<TagViewModel>) {
+    override fun showSelectedTags(viewModels: List<EditTagViewModel>) {
         selectedTagAdapter.setItems(viewModels)
     }
 
-    override fun addSelectedTag(viewModel: TagViewModel) {
+    override fun addSelectedTag(viewModel: EditTagViewModel) {
         selectedTagAdapter.add(viewModel)
         editTagSelectedList.smoothScrollToPosition(selectedTagAdapter.itemCount - 1)
     }
 
-    override fun removeSelectedTag(viewModel: TagViewModel) {
+    override fun removeSelectedTag(viewModel: EditTagViewModel) {
         selectedTagAdapter.remove(viewModel)
     }
 
@@ -106,7 +108,7 @@ class EditTagFragment : AEditRecipeFragment<EditTagPresenter>(), EditTagPresente
         presenter.onTagClicked(viewModel)
     }
 
-    override fun onRemoveClicked(viewModel: TagViewModel) {
+    override fun onRemoveClicked(viewModel: EditTagViewModel) {
         presenter.onRemoveClicked(viewModel)
     }
 

@@ -31,10 +31,13 @@ abstract class AEditRecipeFragment<P : AEditRecipeFragment.Presenter<*>> : AFrag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        attachPresenter()
         if (isSelected) {
             presenter.onSelected()
         }
     }
+
+    abstract fun attachPresenter()
 
     fun watchState(): Observable<Boolean> =
             Observable.create { e ->

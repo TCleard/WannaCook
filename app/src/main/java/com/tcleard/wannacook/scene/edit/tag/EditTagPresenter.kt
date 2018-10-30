@@ -9,8 +9,8 @@ import com.tcleard.wannacook.core.model.Tag
 import com.tcleard.wannacook.core.presenter.IView
 import com.tcleard.wannacook.core.service.ATagService
 import com.tcleard.wannacook.scene.edit.AEditRecipeFragment
-import com.tcleard.wannacook.scene.edit.tag.adapter.vm.SearchTagViewModel
-import com.tcleard.wannacook.ui.adapter.tag.vm.TagViewModel
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vm.SearchTagViewModel
+import com.tcleard.wannacook.scene.edit.tag.adapter.vm.EditTagViewModel
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
@@ -65,19 +65,19 @@ class EditTagPresenter @Inject constructor(
         if (!selectedTags.contains(tag)) {
             view?.resetSearchQuery()
             selectedTags.add(tag)
-            view?.addSelectedTag(TagViewModel(tag, true))
+            view?.addSelectedTag(EditTagViewModel(tag, true))
             checkValidity()
         }
     }
 
-    fun onRemoveClicked(viewModel: TagViewModel) {
+    fun onRemoveClicked(viewModel: EditTagViewModel) {
         selectedTags.remove(viewModel.model)
         view?.removeSelectedTag(viewModel)
         checkValidity()
     }
 
     override fun onSelected() {
-        view?.showSelectedTags(selectedTags.map { TagViewModel(it, true) })
+        view?.showSelectedTags(selectedTags.map { EditTagViewModel(it, true) })
         checkValidity()
     }
 
@@ -89,9 +89,9 @@ class EditTagPresenter @Inject constructor(
 
         fun setState(state: Boolean)
 
-        fun showSelectedTags(viewModels: List<TagViewModel>)
-        fun addSelectedTag(viewModel: TagViewModel)
-        fun removeSelectedTag(viewModel: TagViewModel)
+        fun showSelectedTags(viewModels: List<EditTagViewModel>)
+        fun addSelectedTag(viewModel: EditTagViewModel)
+        fun removeSelectedTag(viewModel: EditTagViewModel)
 
         fun showSearchTags(viewModels: List<SearchTagViewModel>)
         fun removeSearchTags(viewModels: List<SearchTagViewModel>)

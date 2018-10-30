@@ -1,10 +1,10 @@
-package com.tcleard.wannacook.scene.edit.tag.adapter
+package com.tcleard.wannacook.scene.edit.tag.searchAdapter
 
 import android.view.ViewGroup
-import com.tcleard.wannacook.scene.edit.tag.adapter.vh.ASearchTagViewHolder
-import com.tcleard.wannacook.scene.edit.tag.adapter.vh.LoadingSearchTagViewHolder
-import com.tcleard.wannacook.scene.edit.tag.adapter.vh.SearchTagViewHolder
-import com.tcleard.wannacook.scene.edit.tag.adapter.vm.SearchTagViewModel
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vh.ASearchTagViewHolder
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vh.LoadingSearchTagViewHolder
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vh.SearchTagViewHolder
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.vm.SearchTagViewModel
 import com.tcleard.wannacook.ui.adapter.AViewModelAdapter
 
 class SearchTagAdapter(

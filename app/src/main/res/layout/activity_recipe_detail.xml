@@ -44,12 +44,11 @@
         android:id="@+id/recipeImageContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/marginMedium"
-        android:layout_marginBottom="@dimen/marginBig"
         android:transitionName="@string/sharedRecipeImage"
         app:cardCornerRadius="@dimen/recipeImageCornerRadius"
         app:cardElevation="@dimen/toolbarElevation"
         app:layout_constraintBottom_toTopOf="@id/recipeExpander"
+        app:layout_constraintDimensionRatio="H,1:2"
         app:layout_constraintEnd_toEndOf="@id/recipeGLImageEnd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recipeName">
@@ -67,6 +66,7 @@
         android:id="@+id/recipeImageOver"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="@dimen/toolbarElevation"
         android:background="@drawable/gradient_black_to_transparent_top"
         app:layout_constraintBottom_toBottomOf="@id/recipeImageContainer"
         app:layout_constraintEnd_toEndOf="@id/recipeImageContainer"
@@ -95,7 +95,7 @@
         app:layout_constraintBottom_toBottomOf="@id/recipePreparationIcon"
         app:layout_constraintStart_toEndOf="@id/recipePreparationIcon"
         app:layout_constraintTop_toTopOf="@id/recipePreparationIcon"
-        tools:text="15 min" />
+        tools:text="@string/toolsTiny" />
 
     <ImageView
         android:id="@+id/recipeCookingIcon"
@@ -118,7 +118,7 @@
         app:layout_constraintBottom_toBottomOf="@id/recipeCookingIcon"
         app:layout_constraintStart_toEndOf="@id/recipeCookingIcon"
         app:layout_constraintTop_toTopOf="@id/recipeCookingIcon"
-        tools:text="15 min" />
+        tools:text="@string/toolsTiny" />
 
     <ImageView
         android:id="@+id/recipeDifficultyIcon"
@@ -141,24 +141,27 @@
         app:layout_constraintBottom_toBottomOf="@id/recipeDifficultyIcon"
         app:layout_constraintStart_toEndOf="@id/recipeDifficultyIcon"
         app:layout_constraintTop_toTopOf="@id/recipeDifficultyIcon"
-        tools:text="Easy" />
+        tools:text="@string/toolsTiny" />
 
     <TextView
         android:id="@+id/recipeName"
         style="@style/TextStyleBold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginBig"
+        android:layout_marginLeft="@dimen/marginBig"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginRight="@dimen/marginBig"
+        android:layout_marginBottom="@dimen/marginMedium"
         android:elevation="@dimen/toolbarElevation"
-        android:lineSpacingExtra="@dimen/paddingRegular"
-        android:maxLines="2"
-        android:paddingBottom="@dimen/paddingMedium"
+        android:gravity="center|start"
+        android:lineSpacingExtra="@dimen/paddingSmall"
+        android:lines="2"
         android:textSize="@dimen/textLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recipeBack"
-        tools:text="Recipe Name"
-        tools:textColor="@color/colorPrimary" />
+        tools:text="@string/toolsSmall"
+        tools:textColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/recipeNameWhite"
@@ -166,15 +169,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="@dimen/toolbarElevation"
-        android:lineSpacingExtra="@dimen/paddingRegular"
-        android:maxLines="2"
-        android:paddingBottom="@dimen/paddingMedium"
+        android:gravity="center|start"
+        android:lineSpacingExtra="@dimen/paddingSmall"
+        android:lines="2"
         android:textColor="@color/white"
         android:textSize="@dimen/textLarge"
         app:layout_constraintEnd_toEndOf="@id/recipeName"
         app:layout_constraintStart_toStartOf="@id/recipeName"
         app:layout_constraintTop_toTopOf="@id/recipeName"
-        tools:text="Recipe Name" />
+        tools:text="@string/toolsSmall" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/recipePager"
@@ -203,7 +206,7 @@
         android:id="@+id/recipeExpander"
         android:layout_width="@dimen/fabSize"
         android:layout_height="@dimen/fabSize"
-        android:layout_margin="@dimen/marginBig"
+        android:layout_marginBottom="@dimen/marginBig"
         android:background="@mipmap/diamond_button"
         android:backgroundTint="@color/colorAccent"
         android:elevation="@dimen/fabElevation"

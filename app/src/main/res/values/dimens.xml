@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="paddingTiny">2dp</dimen>
     <dimen name="paddingSmall">4dp</dimen>
     <dimen name="paddingRegular">8dp</dimen>
     <dimen name="paddingMedium">16dp</dimen>
@@ -19,6 +20,8 @@
     <dimen name="textMedium">21sp</dimen>
     <dimen name="textBig">25sp</dimen>
     <dimen name="textLarge">29sp</dimen>
+
+    <dimen name="cornerRadius">6dp</dimen>
 
     <!-- StatusBar -->
     <dimen name="statusBarHeight">24dp</dimen>
@@ -40,7 +43,7 @@
     <dimen name="itemElevationRest">2dp</dimen>
     <dimen name="itemElevationPressed">5dp</dimen>
     <dimen name="itemElevationDisabled">0dp</dimen>
-    <dimen name="itemCornerRadius">@dimen/paddingSmall</dimen>
+    <dimen name="itemCornerRadius">@dimen/cornerRadius</dimen>
 
     <!-- Divider -->
     <dimen name="dividerSize">1dp</dimen>
@@ -50,15 +53,18 @@
     <dimen name="fabElevation">8dp</dimen>
 
     <!-- Button -->
-    <dimen name="buttonCornerRadius">@dimen/paddingSmall</dimen>
+    <dimen name="buttonCornerRadius">@dimen/cornerRadius</dimen>
     <dimen name="buttonHeight">48dp</dimen>
     <dimen name="buttonElevation">4dp</dimen>
 
     <!-- Edit -->
-    <dimen name="editCornerRadius">@dimen/paddingSmall</dimen>
+    <dimen name="editCornerRadius">@dimen/cornerRadius</dimen>
     <dimen name="editVerticalPadding">12dp</dimen>
     <dimen name="editElevation">1dp</dimen>
     <dimen name="editHorizontalPadding">@dimen/paddingRegular</dimen>
+
+    <!-- ColorPicker -->
+    <dimen name="colorPickerSize">160dp</dimen>
 
     <!-- Tag -->
     <dimen name="tagCornerRadius">@dimen/paddingBig</dimen>
@@ -70,7 +76,7 @@
     <dimen name="loadingBig">128dp</dimen>
 
     <!-- Recipe Item -->
-    <dimen name="recipeItemHeight">256dp</dimen>
+    <dimen name="recipeItemHeight">192dp</dimen>
     <dimen name="recipeImageCornerRadius">2dp</dimen>
 
     <!-- Ingredient -->

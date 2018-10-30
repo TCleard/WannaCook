@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.tcleard.wannacook.App
+import com.tcleard.wannacook.core.manager.IDialogManager
 import com.tcleard.wannacook.core.manager.IKeyboardManager
 import com.tcleard.wannacook.core.presenter.APresenter
 import com.tcleard.wannacook.di.component.AppComponent
@@ -13,6 +14,9 @@ abstract class AFragment<P : APresenter<*>> : Fragment(), IController {
 
     @Inject
     protected lateinit var presenter: P
+
+    @Inject
+    protected lateinit var dialogManager: IDialogManager
 
     @Inject
     protected lateinit var keyboardManager: IKeyboardManager
@@ -44,7 +48,7 @@ abstract class AFragment<P : APresenter<*>> : Fragment(), IController {
     open fun onRecreate(savedData: Bundle?) {
 
     }
-
+    
     override fun onDestroy() {
         super.onDestroy()
         presenter.unbind()

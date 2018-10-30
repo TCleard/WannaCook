@@ -8,7 +8,7 @@
 
     <TextView
         style="@style/TextStyleRegular"
-        android:layout_width="@dimen/loadingBig"
+        android:layout_width="@dimen/loadingRegular"
         android:layout_height="wrap_content"
         android:background="@drawable/loading_text"
         app:layout_constraintBottom_toBottomOf="parent"

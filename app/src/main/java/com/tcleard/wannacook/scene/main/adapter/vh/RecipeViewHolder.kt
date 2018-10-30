@@ -1,5 +1,7 @@
 package com.tcleard.wannacook.scene.main.adapter.vh
 
+import android.content.res.ColorStateList
+import android.support.v4.widget.ImageViewCompat
 import android.view.View
 import android.view.ViewGroup
 import com.tcleard.wannacook.R
@@ -24,9 +26,11 @@ class RecipeViewHolder(
     override fun bind(item: RecipeViewModel) {
         super.bind(item)
 
-        val typeColor = item.getTypeColor() ?: resources.getColor(R.color.colorPrimary)
+        val color = item.getColor() ?: resources.getColor(R.color.colorAccent)
 
-        itemView.recipeImage.setBackgroundColor(typeColor.withAlpha(0.6f))
+        ImageViewCompat.setImageTintList(itemView.recipeBackground, ColorStateList.valueOf(color))
+
+        itemView.recipeImage.setBackgroundColor(color.withAlpha(0.6f))
 
         if (item.getImageUrl().isNotBlank()) {
             if (imageRequest?.url != item.getImageUrl()) {
@@ -38,6 +42,8 @@ class RecipeViewHolder(
             imageRequest = null
             itemView.recipeImage.setImageDrawable(null)
         }
+
+        itemView.recipeName.text = item.getName()
 
         if (item.getPreparationTime() != null) {
             itemView.recipePreparationIcon.visibility = View.VISIBLE
@@ -57,10 +63,12 @@ class RecipeViewHolder(
             itemView.recipeCooking.visibility = View.GONE
         }
 
-        itemView.recipeType.text = item.getType()
-        itemView.recipeType.setTextColor(typeColor)
-
-        itemView.recipeName.text = item.getName()
+        if (item.getDescription().isNotBlank()) {
+            itemView.recipeDescription.text = item.getDescription()
+            itemView.recipeDescription.visibility = View.VISIBLE
+        } else {
+            itemView.recipeDescription.visibility = View.GONE
+        }
 
         if (item.isFavorite()) {
             itemView.recipeFavorite.setImageResource(R.mipmap.favorite_on)

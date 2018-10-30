@@ -39,4 +39,39 @@
         app:layout_constraintBottom_toBottomOf="@id/editTitleField"
         app:layout_constraintEnd_toEndOf="@id/editTitleField" />
 
+    <TextView
+        android:id="@+id/editTitleColorHeader"
+        style="@style/TextStyleBold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginBig"
+        android:layout_marginRight="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
+        android:text="@string/editTitleColorHeader"
+        android:textSize="@dimen/textMedium"
+        app:layout_constraintEnd_toStartOf="@id/editTitleColorContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTitleField" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/editTitleColorContainer"
+        android:layout_width="@dimen/iconMediumSize"
+        android:layout_height="@dimen/iconMediumSize"
+        android:layout_margin="@dimen/marginMedium"
+        app:cardCornerRadius="@dimen/itemCornerRadius"
+        app:cardElevation="@dimen/itemElevationRest"
+        app:layout_constraintBottom_toBottomOf="@id/editTitleColorHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editTitleColorHeader">
+
+        <ImageButton
+            android:id="@+id/editTitleColorIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:foreground="@drawable/foreground_light_rounded" />
+
+    </android.support.v7.widget.CardView>
+
 </android.support.constraint.ConstraintLayout>

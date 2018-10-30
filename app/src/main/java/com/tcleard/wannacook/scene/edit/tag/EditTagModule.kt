@@ -2,8 +2,8 @@ package com.tcleard.wannacook.scene.edit.tag
 
 import com.tcleard.wannacook.core.service.ATagService
 import com.tcleard.wannacook.di.SceneScope
-import com.tcleard.wannacook.scene.edit.tag.adapter.SearchTagAdapter
-import com.tcleard.wannacook.ui.adapter.tag.TagAdapter
+import com.tcleard.wannacook.scene.edit.tag.searchAdapter.SearchTagAdapter
+import com.tcleard.wannacook.scene.edit.tag.adapter.EditTagAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -20,8 +20,8 @@ class EditTagModule(
 
     @Provides
     @SceneScope
-    fun provideSelectedAdapter(): TagAdapter {
-        return TagAdapter(fragment)
+    fun provideSelectedAdapter(): EditTagAdapter {
+        return EditTagAdapter(fragment)
     }
 
     @Provides

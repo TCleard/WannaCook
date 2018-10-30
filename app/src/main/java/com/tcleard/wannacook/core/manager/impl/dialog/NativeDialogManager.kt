@@ -1,15 +1,15 @@
 package com.tcleard.wannacook.core.manager.impl.dialog
 
+import android.app.Activity
 import android.content.Context
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.view.ContextThemeWrapper
 import com.tcleard.wannacook.R
 import com.tcleard.wannacook.core.manager.IDialogManager
 
 class NativeDialogManager : IDialogManager {
 
-    override fun builder(activity: AppCompatActivity): IDialogManager.Builder = Builder(activity)
+    override fun builder(activity: Activity): IDialogManager.Builder = Builder(activity)
 
     class Builder(context: Context) : IDialogManager.Builder(context) {
 
@@ -19,6 +19,9 @@ class NativeDialogManager : IDialogManager {
                     .setCancelable(isCancelable)
                     .setTitle(title)
                     .setMessage(message)
+            view?.let {
+                nativeBuilder = nativeBuilder.setView(view)
+            }
             if (positiveButton?.isNotBlank() == true) {
                 nativeBuilder = nativeBuilder.setPositiveButton(positiveButton) { _, _ -> onPositiveClickListener.invoke(dialog) }
             }
